@@ -1,0 +1,15 @@
+use the official Python 2.7.9 installer from here https://www.python.org/downloads/windows/
+
+Microsoft Visual C++ Compiler for Python 2.7 http://aka.ms/vcpython27
+
+Install psycopg using the installer here http://www.stickpeople.com/projects/python/win-psycopg/
+
+pip.exe install -r requirements.txt
+
+PostgreSQL
+
+https://www.enterprisedb.com/downloads/postgres-postgresql-downloads
+add user
+
+on Windows, install nodejs (https://nodejs.org/download/), reboot (to update the PATH) and install less
+npm install -g less

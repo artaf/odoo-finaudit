@@ -1,0 +1,7 @@
+id,name,model_id:id,group_id:id,perm_read,perm_write,perm_create,perm_unlink
+access_lfx_expense_ticket_user,lfx.expense.ticket.user,model_lfx_expense_ticket,group_expense_ticket,1,1,1,1
+access_lfx_expense_ticket_account_user,lfx.expense.ticket.account.user,model_lfx_expense_ticket,account.group_account_user,1,1,1,1
+access_lfx_expense_ticket_account_user,lfx.expense.ticket.account.user,model_lfx_expense_ticket,account.group_account_invoice,1,1,1,1
+access_lfx_expense_ticket_line_user,lfx.expense.ticket.line.user,model_lfx_expense_ticket_line,group_expense_ticket,1,1,1,1
+access_lfx_expense_ticket_line_account_user,lfx.expense.ticket.line.account.user,model_lfx_expense_ticket_line,account.group_account_user,1,1,1,1
+access_lfx_expense_ticket_line_account_user,lfx.expense.ticket.line.account.user,model_lfx_expense_ticket_line,account.group_account_invoice,1,1,1,1

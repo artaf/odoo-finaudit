@@ -1,0 +1,17 @@
+__init__.py
+__init__.pyc
+auth_crypt
+base
+base_import
+base_setup
+decimal_precision
+odoo-finaudit
+test_exceptions
+web
+web_calendar
+web_diagram
+web_editor
+web_kanban
+web_kanban_gauge
+web_planner
+web_settings_dashboard
