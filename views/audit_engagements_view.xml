@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo><data>
+
+<record id="audit_engagements_form" model="ir.ui.view">
+    <field name="name">audit.engagements.form</field>
+    <field name="model">audit.engagements</field>
+    <field name="priority">20</field>
+    <field name="arch" type="xml">
+        <form string="Audit Engagement">
+            <header></header>
+            <group>
+                <field name="name"/>
+                <field name="client_id"/>
+                <field name="company_id" options="{'no_create': True}" groups=""/>
+            </group>
+        </form>
+    </field>
+</record>
+
+
+<record id="audit_engagements_tree" model="ir.ui.view">
+    <field name="name">audit.engagements.tree</field>
+    <field name="model">audit.engagements</field>
+    <field name="arch" type="xml">
+        <tree string="Audit Engagements">
+            <field name="name"/>
+            <field name="client_id"/>
+            <field name="company_id" groups="" options="{'no_create': True}"/>
+        </tree>
+    </field>
+</record>
+
+</data></odoo>

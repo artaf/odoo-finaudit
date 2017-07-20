@@ -1,52 +1,51 @@
-<odoo>
-<data noupdate="0">
+<odoo><data noupdate="0">
 
-    <record id="lfx_expense_ticket_module" model="ir.module.category">
-        <field name="name">Expense ticket access</field>
-        <field name="description">User access level for Expense ticket</field>
-        <field name="sequence">40</field>
+    <record id="finaudit_module" model="ir.module.category">
+        <field name="name">Financial Audit access</field>
+        <field name="description">User access level for Financial Audit Module</field>
+        <field name="sequence">0</field>
     </record>
 
-    <record id="group_expense_ticket" model="res.groups">
-        <field name="name">User</field>
-        <field name="category_id" ref="lfx_expense_ticket.lfx_expense_ticket_module"/>
+    <!-- Auditors' Assistants have typicaly got a restricted access -->
+    <record id="finaudit_auditor_assistant" model="res.groups">
+        <field name="name">Auditor Assistant</field>
+
+    </record>
+
+    <!-- Auditors have got a full access to some models and restricted one to others -->
+    <record id="finaudit_auditor" model="res.groups">
+        <field name="name">Auditor</field>
+        <field name="implied_ids" eval="[(4, ref('finaudit_auditor_assistant'))]"/>
+
+    </record>
+
+    <!-- Engagement Partners have got a full access -->
+    <record id="finaudit_engagement_partner" model="res.groups">
+        <field name="name">Engagement Partner</field>
         <field name="users" eval="[(4, ref('base.user_root'))]"/>
-        <field name="implied_ids" eval="[(4, ref('base.group_user') )]"/>
+        <field name="implied_ids" eval="[(4, ref('finaudit_auditor'))]"/>
     </record>
 
-    <record id="expense_ticket_comp_rule" model="ir.rule">
+    <!-- Engagement quality control reviewers have got a readonly access -->
+    <record id="finaudit_eqq_reviewer" model="res.groups">
+        <field name="name">Engagement QQ Reviewer</field>
+
+    </record>
+<!--
+    <record id="audit_engagements_company_rule" model="ir.rule">
         <field name="name">expense_ticket multi-company</field>
-        <field name="model_id" ref="model_lfx_expense_ticket"/>
+        <field name="model_id" ref="model_audit_engagements"/>
         <field name="global" eval="True"/>
         <field name="domain_force">['|',('company_id','=',False),('company_id','child_of',[user.company_id.id])]</field>
     </record>
-
-    <record id="account.group_account_invoice" model="res.groups">
-        <field name="implied_ids" eval="[(4, ref('group_expense_ticket'))]"/>
-    </record>
-
-<!-- not needed
-    <record id="mail.mail_followers_read_write_own" model="ir.rule">
-        <field name="groups" eval="[(4, ref('group_expense_ticket'))]"/>
-    </record>
 -->
+<!--
     <record id="account.menu_finance" model="ir.ui.menu">
         <field name="groups_id" eval="[(4, ref('group_expense_ticket'))]"/>
     </record>
     <record id="account.menu_finance_payables" model="ir.ui.menu">
         <field name="groups_id" eval="[(4, ref('group_expense_ticket'))]"/>
     </record>
-
-
-<!--
-    <record id="expense_ticket_line_comp_rule" model="ir.rule">
-        <field name="name">expense_ticket_line multi-company</field>
-        <field name="model_id" ref="model_lfx_expense_ticket_line"/>
-        <field name="global" eval="True"/>
-        <field name="domain_force">['|',('company_id','=',False),('company_id','child_of',[user.company_id.id])]</field>
-    </record>
 -->
 
-
-</data>
-</odoo>
+</data></odoo>

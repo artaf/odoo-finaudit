@@ -1,7 +1,5 @@
 id,name,model_id:id,group_id:id,perm_read,perm_write,perm_create,perm_unlink
-access_lfx_expense_ticket_user,lfx.expense.ticket.user,model_lfx_expense_ticket,group_expense_ticket,1,1,1,1
-access_lfx_expense_ticket_account_user,lfx.expense.ticket.account.user,model_lfx_expense_ticket,account.group_account_user,1,1,1,1
-access_lfx_expense_ticket_account_user,lfx.expense.ticket.account.user,model_lfx_expense_ticket,account.group_account_invoice,1,1,1,1
-access_lfx_expense_ticket_line_user,lfx.expense.ticket.line.user,model_lfx_expense_ticket_line,group_expense_ticket,1,1,1,1
-access_lfx_expense_ticket_line_account_user,lfx.expense.ticket.line.account.user,model_lfx_expense_ticket_line,account.group_account_user,1,1,1,1
-access_lfx_expense_ticket_line_account_user,lfx.expense.ticket.line.account.user,model_lfx_expense_ticket_line,account.group_account_invoice,1,1,1,1
+access_audit_engagements_eqq_reviewer,audit_engagements_eqq_reviewer,model_audit_engagements,finaudit_eqq_reviewer,1,0,0,0
+access_audit_engagements_auditor_assistant,audit_engagements_auditor_assistant,model_audit_engagements,finaudit_auditor_assistant,1,0,0,0
+access_audit_engagements_auditor,audit_engagements_auditor,model_audit_engagements,finaudit_auditor,1,1,1,1
+access_audit_engagements_engagement_partner,audit_engagements_engagement_partner,model_audit_engagements,finaudit_engagement_partner,1,1,1,1

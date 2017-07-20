@@ -10,8 +10,13 @@ financial audit
     'author': "(c) Artem Afanasev, 2017",
     'e-mail': "@",
     'website': "",
-    'depends': [],
+    'depends': ['base','web'],
     'data': [
+#        'security/security.xml',
+        'security/ir.model.access.csv',
+        'views/audit_engagements_clients_view.xml',
+        'views/audit_engagements_view.xml',
+        'views/menu.xml',
     ],
     'demo': [
     ],

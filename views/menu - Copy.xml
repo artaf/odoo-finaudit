@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo><data>
+    <!-- Top menu item -->
+    <menuitem id="finaudit_menu" name="Financial Audit" sequence="1" groups="base.group_user"/>
+
+    <!-- Side menu actions -->
+    <record id="finaudit_clients_tree_action" model="ir.actions.act_window">
+        <field name="name">Clients</field>
+        <field name="res_model">res.partner</field>
+        <field name="view_mode">tree,form</field>
+        <field name="help" type="html">
+          <p class="oe_view_nocontent_create">Click to add a new client.</p>
+        </field>
+    </record>
+
+    <record id="finaudit_engagements_tree_action" model="ir.actions.act_window">
+        <field name="name">Audit Engagements views</field>
+        <field name="res_model">audit.engagements</field>
+        <field name="view_mode">tree,form</field>
+        <field name="help" type="html">
+          <p class="oe_view_nocontent_create">Click to add a new audit engagement.</p>
+        </field>
+    </record>
+
+    <!-- Side menu items -->
+    <menuitem action="finaudit_clients_tree_action" id="finaudit_menu_clients" name="Clients menu" parent="finaudit_menu" sequence="1"/>
+    <menuitem action="finaudit_engagements_tree_action" id="finaudit_menu_engagements" name="Engagements menu" parent="finance_menu" sequence="2"/>
+
+</data></odoo>
