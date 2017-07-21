@@ -13,10 +13,13 @@ financial audit
     'depends': ['base','web'],
     'data': [
 #        'security/security.xml',
-        'security/ir.model.access.csv',
+#        'security/ir.model.access.csv',
         'views/audit_engagements_clients_view.xml',
         'views/audit_engagements_view.xml',
+        'views/assertions_objects_view.xml',
         'views/menu.xml',
+        'data-licence/audit.assertions.csv',
+#        'data-licence/audit.objects.csv',
     ],
     'demo': [
     ],

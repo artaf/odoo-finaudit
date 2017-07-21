@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo><data>
+
+<record id="audit_assertions_form" model="ir.ui.view">
+    <field name="name">audit.assertions.form</field>
+    <field name="model">audit.assertions</field>
+    <field name="priority">20</field>
+    <field name="arch" type="xml">
+        <form string="Assertion">
+            <header></header>
+            <group>
+                <field name="name"/>
+                <field name="obj_id"/>
+            </group>
+        </form>
+    </field>
+</record>
+
+<record id="audit_assertions_tree" model="ir.ui.view">
+    <field name="name">audit.assertions.tree</field>
+    <field name="model">audit.assertions</field>
+    <field name="arch" type="xml">
+        <tree string="Assertions">
+            <field name="name"/>
+            <field name="obj_id"/>
+        </tree>
+    </field>
+</record>
+
+<record id="audit_objects_form" model="ir.ui.view">
+    <field name="name">audit.objects.form</field>
+    <field name="model">audit.objects</field>
+    <field name="priority">20</field>
+    <field name="arch" type="xml">
+        <form string="Audit general object">
+            <header></header>
+            <group>
+                <field name="name"/>
+                <field name="assertion_ids"/>
+            </group>
+        </form>
+    </field>
+</record>
+
+
+<record id="audit_objects_tree" model="ir.ui.view">
+    <field name="name">audit.objects.tree</field>
+    <field name="model">audit.objects</field>
+    <field name="arch" type="xml">
+        <tree string="Audit general objects">
+            <field name="name"/>
+            <field name="assertion_ids"/>
+        </tree>
+    </field>
+</record>
+
+</data></odoo>
