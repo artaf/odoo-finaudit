@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo><data noupdate="0">
+    <record model="audit.procedures.types" id="apt_1">
+        <field name="name">инспектирование</field>
+    </record>
+    <record model="audit.procedures.types" id="apt_2">
+        <field name="name">наблюдение</field>
+    </record>
+    <record model="audit.procedures.types" id="apt_3">
+        <field name="name">запрос</field>
+    </record>
+    <record model="audit.procedures.types" id="apt_4">
+        <field name="name">подтверждение</field>
+    </record>    
+    <record model="audit.procedures.types" id="apt_5">
+        <field name="name">пересчет</field>
+    </record>    
+    <record model="audit.procedures.types" id="apt_6">
+        <field name="name">повторное применение средства контроля</field>
+    </record>
+    <record model="audit.procedures.types" id="apt_7">
+        <field name="name">аналитическая процедура</field>
+    </record>
+</data></odoo>

@@ -1,4 +1,4 @@
-id,name,audit_objects:id
+id,name,obj_id/id
 asser_1,наличие,obj_1
 asser_2,полнота,obj_1
 asser_3,точность,obj_1
@@ -6,9 +6,7 @@ asser_4,своевременность признания,obj_1
 asser_5,классификация,obj_1
 asser_6,существование,obj_2
 asser_7,права и обязанности,obj_2
-asser_8,полнота,obj_2
 asser_9,оценка и распределение,obj_2
 asser_10,"наличие, права и обязанности",obj_3
-asser_11,полнота,obj_3
 asser_12,классификация и понятность,obj_3
 asser_13,точность и оценка,obj_3

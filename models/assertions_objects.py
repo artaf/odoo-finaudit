@@ -8,7 +8,7 @@ class AuditAssertion(models.Model):
     _description = "Assertions"
     _order = "id"
     name = fields.Char("Assertion", copy=False, required=True)
-    obj_id = fields.Many2one('audit.objects', string='Object', required=True)
+#    obj_ids = fields.Many2many('audit.objects', string='Object')
     _sql_constraints = []
 
 class AuditObjects(models.Model):
@@ -16,5 +16,5 @@ class AuditObjects(models.Model):
     _description = "Audit general objects"
     _order = "id"
     name = fields.Char("Object", copy=False, required=True)
-    assertion_ids = fields.One2many('audit.assertions', 'obj_id', string='Assertion', required=True)
+    assertion_ids = fields.Many2many('audit.assertions', string='Assertion')
     _sql_constraints = []

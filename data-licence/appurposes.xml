@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo><data noupdate="0">
+    <record model="audit.procedures.purposes" id="app_1">
+        <field name="name">тестирование средств контроля</field>
+    </record>
+    <record model="audit.procedures.purposes" id="app_2">
+        <field name="name">процедура проверки по существу</field>
+    </record>
+    <record model="audit.procedures.purposes" id="app_3">
+        <field name="name">оценка РСИ</field>
+    </record>
+</data></odoo>

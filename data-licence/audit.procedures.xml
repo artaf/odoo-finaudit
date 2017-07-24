@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo><data noupdate="0">
+    <record model="audit.procedures" id="ap_1">
+        <field name="name">Запрос о недобросовестных действиях</field>
+        <field name="type" ref="apt_3"/>
+        <field name="purpose" ref="app_3"/>
+    </record>
+    <record model="audit.procedures" id="ap_22">
+        <field name="name">Рассмотрение значимости информации, полученной выполнении процедуры принятия или продолжения отношений с клиентом</field>
+        <field name="type" ref="apt_7"/>
+        <field name="purpose" ref="app_3"/>
+    </record>
+</data></odoo>

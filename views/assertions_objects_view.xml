@@ -10,7 +10,7 @@
             <header></header>
             <group>
                 <field name="name"/>
-                <field name="obj_id"/>
+                <!--                <field name="obj_ids"/>-->
             </group>
         </form>
     </field>
@@ -22,7 +22,7 @@
     <field name="arch" type="xml">
         <tree string="Assertions">
             <field name="name"/>
-            <field name="obj_id"/>
+            <!--            <field name="obj_ids"/>-->
         </tree>
     </field>
 </record>

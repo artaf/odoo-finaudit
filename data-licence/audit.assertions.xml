@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo><data noupdate="0">
+    <record model="audit.assertions" id="asser_1">
+        <field name="name">наличие</field>
+        <!--        <field name="obj_ids" ref="obj_1"/>-->
+    </record>
+    <record model="audit.assertions" id="asser_2">
+        <field name="name">полнота</field>
+        <!--        <field name="obj_ids" eval="[(0,0,ref('obj_1')),(0,0,ref('obj_2'))]"/>-->
+    </record>
+    <record model="audit.assertions" id="asser_3">
+        <field name="name">точность</field>
+        <!--        <field name="obj_ids" ref="obj_1"/>-->
+    </record>
+    <record model="audit.assertions" id="asser_4">
+        <field name="name">своевременность признания</field>
+        <!--        <field name="obj_ids" ref="obj_1"/>-->
+    </record>
+    <record model="audit.assertions" id="asser_5">
+        <field name="name">классификация</field>
+        <!--        <field name="obj_ids" ref="obj_1"/>-->
+    </record>
+    <record model="audit.assertions" id="asser_6">
+        <field name="name">существование</field>
+        <!--        <field name="obj_ids" ref="obj_2"/>-->
+    </record>
+    <record model="audit.assertions" id="asser_7">
+        <field name="name">права и обязанности</field>
+        <!--        <field name="obj_ids" ref="obj_2"/>-->
+    </record>
+    <record model="audit.assertions" id="asser_9">
+        <field name="name">оценка и распределение</field>
+        <!--        <field name="obj_ids" ref="obj_2"/>-->
+    </record>
+    <record model="audit.assertions" id="asser_10">
+        <field name="name">наличие, права и обязанности</field>
+        <!--        <field name="obj_ids" ref="obj_3"/>-->
+    </record>
+    <record model="audit.assertions" id="asser_12">
+        <field name="name">классификация и понятность</field>
+        <!--        <field name="obj_ids" ref="obj_3"/>-->
+    </record>
+    <record model="audit.assertions" id="asser_13">
+        <field name="name">точность и оценка</field>
+        <!--        <field name="obj_ids" ref="obj_3"/>-->
+    </record>
+</data></odoo>

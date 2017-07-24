@@ -10,7 +10,8 @@ financial audit
     'author': "(c) Artem Afanasev, 2017",
     'e-mail': "@",
     'website': "",
-    'depends': ['base','web'],
+    'license': "LGPL-3",
+    'depends': ['base','web','base_import'],
     'data': [
 #        'security/security.xml',
 #        'security/ir.model.access.csv',
@@ -18,8 +19,11 @@ financial audit
         'views/audit_engagements_view.xml',
         'views/assertions_objects_view.xml',
         'views/menu.xml',
-        'data-licence/audit.assertions.csv',
-#        'data-licence/audit.objects.csv',
+        'data-licence/audit.assertions.xml',
+        'data-licence/audit.objects.xml',
+        'data-licence/aptype.xml',
+        'data-licence/appurposes.xml',
+#        'data-licence/a.model.csv',
     ],
     'demo': [
     ],
