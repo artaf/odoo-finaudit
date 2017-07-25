@@ -1,0 +1,81 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo><data>
+
+<record id="audit_procedures_form" model="ir.ui.view">
+    <field name="name">audit.procedures.form</field>
+    <field name="model">audit.procedures</field>
+    <field name="priority">20</field>
+    <field name="arch" type="xml">
+        <form string="Procedure">
+            <header></header>
+            <group>
+                <field name="name"/>
+                <field name="type"/>
+                <field name="purpose"/>
+            </group>
+        </form>
+    </field>
+</record>
+
+<record id="audit_procedures_tree" model="ir.ui.view">
+    <field name="name">audit.procedures.tree</field>
+    <field name="model">audit.procedures</field>
+    <field name="arch" type="xml">
+        <tree string="Procedures">
+            <field name="name"/>
+            <field name="type"/>
+            <field name="purpose"/>
+        </tree>
+    </field>
+</record>
+
+<record id="audit_procedures_types_form" model="ir.ui.view">
+    <field name="name">audit.procedures.types.form</field>
+    <field name="model">audit.procedures.types</field>
+    <field name="priority">20</field>
+    <field name="arch" type="xml">
+        <form string="Audit procedure type">
+            <header></header>
+            <group>
+                <field name="name"/>
+            </group>
+        </form>
+    </field>
+</record>
+
+
+<record id="audit_procedures_types_tree" model="ir.ui.view">
+    <field name="name">audit.procedures.types.tree</field>
+    <field name="model">audit.procedures.types</field>
+    <field name="arch" type="xml">
+        <tree string="Audit procedures types">
+            <field name="name"/>
+        </tree>
+    </field>
+</record>
+
+<record id="audit_procedures_purposes_form" model="ir.ui.view">
+    <field name="name">audit.procedures.purposes.form</field>
+    <field name="model">audit.procedures.purposes</field>
+    <field name="priority">20</field>
+    <field name="arch" type="xml">
+        <form string="Audit procedure purpose">
+            <header></header>
+            <group>
+                <field name="name"/>
+            </group>
+        </form>
+    </field>
+</record>
+
+<record id="audit_procedures_purposes_tree" model="ir.ui.view">
+    <field name="name">audit.procedures.purposes.tree</field>
+    <field name="model">audit.procedures.purposes</field>
+    <field name="arch" type="xml">
+        <tree string="Audit procedures purposes">
+            <field name="name"/>
+        </tree>
+    </field>
+</record>
+
+</data></odoo>

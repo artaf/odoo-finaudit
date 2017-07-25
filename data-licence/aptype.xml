@@ -21,4 +21,7 @@
     <record model="audit.procedures.types" id="apt_7">
         <field name="name">аналитическая процедура</field>
     </record>
+    <record model="audit.procedures.types" id="apt_8">
+        <field name="name">прочая</field>
+    </record>
 </data></odoo>

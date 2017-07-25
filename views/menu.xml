@@ -124,16 +124,80 @@
         <field name="view_id" ref="audit_objects_form"/>
         <field name="act_window_id" ref="finaudit_objects_menu_action"/>
     </record>
+-----
+    <record id="finaudit_procedures_menu_action" model="ir.actions.act_window">
+        <field name="name">Audit procedures views</field>
+        <field name="res_model">audit.procedures</field>
+        <field name="view_mode">tree,form</field>
+        <field name="help" type="html">
+            <p class="oe_view_nocontent_create">Click to add a new audit procedure.</p>
+        </field>
+    </record>
+    <record model="ir.actions.act_window.view" id="finaudit_procedures_tree_view">
+        <field name="sequence" eval="1"/>
+        <field name="view_mode">tree</field>
+        <field name="view_id" ref="audit_procedures_tree"/>
+        <field name="act_window_id" ref="finaudit_procedures_menu_action"/>
+    </record>
+    <record model="ir.actions.act_window.view" id="finaudit_procedures_form_view">
+        <field name="sequence" eval="2"/>
+        <field name="view_mode">form</field>
+        <field name="view_id" ref="audit_procedures_form"/>
+        <field name="act_window_id" ref="finaudit_procedures_menu_action"/>
+    </record>
+
+    <record id="finaudit_procedures_purposes_menu_action" model="ir.actions.act_window">
+        <field name="name">Audit procedures purposes views</field>
+        <field name="res_model">audit.procedures.purposes</field>
+        <field name="view_mode">tree,form</field>
+        <field name="help" type="html">
+            <p class="oe_view_nocontent_create">Click to add a new audit procedure purpose.</p>
+        </field>
+    </record>
+    <record model="ir.actions.act_window.view" id="finaudit_procedures_purposes_tree_view">
+        <field name="sequence" eval="1"/>
+        <field name="view_mode">tree</field>
+        <field name="view_id" ref="audit_procedures_purposes_tree"/>
+        <field name="act_window_id" ref="finaudit_procedures_purposes_menu_action"/>
+    </record>
+    <record model="ir.actions.act_window.view" id="finaudit_procedures_purposes_form_view">
+        <field name="sequence" eval="2"/>
+        <field name="view_mode">form</field>
+        <field name="view_id" ref="audit_procedures_purposes_form"/>
+        <field name="act_window_id" ref="finaudit_procedures_purposes_menu_action"/>
+    </record>
+
+    <record id="finaudit_procedures_types_menu_action" model="ir.actions.act_window">
+        <field name="name">Audit procedures types views</field>
+        <field name="res_model">audit.procedures.types</field>
+        <field name="view_mode">tree,form</field>
+        <field name="help" type="html">
+            <p class="oe_view_nocontent_create">Click to add a new audit procedure type.</p>
+        </field>
+    </record>
+    <record model="ir.actions.act_window.view" id="finaudit_procedures_types_tree_view">
+        <field name="sequence" eval="1"/>
+        <field name="view_mode">tree</field>
+        <field name="view_id" ref="audit_procedures_types_tree"/>
+        <field name="act_window_id" ref="finaudit_procedures_types_menu_action"/>
+    </record>
+    <record model="ir.actions.act_window.view" id="finaudit_procedures_types_form_view">
+        <field name="sequence" eval="2"/>
+        <field name="view_mode">form</field>
+        <field name="view_id" ref="audit_procedures_types_form"/>
+        <field name="act_window_id" ref="finaudit_procedures_types_menu_action"/>
+    </record>
 
     <!-- Side menu items -->
     <menuitem action="finaudit_engagements_kanban_menu_action" id="finaudit_menu_dashboard" name="Dashboard" parent="finaudit_menu" sequence="1"/>
     <menuitem action="finaudit_plans_menu_action" id="finaudit_menu_plans" name="Planning" parent="finaudit_menu" sequence="2"/>
-
     <menuitem action="finaudit_engagements_menu_action" id="finaudit_menu_engagements" name="Engagements" parent="finaudit_menu" sequence="10"/>
     <menuitem action="finaudit_clients_menu_action" id="finaudit_menu_clients" name="Clients" parent="finaudit_menu" sequence="3"/>
 
     <menuitem id="finaudit_menu_settings" name="Settings" parent="finaudit_menu" sequence="99"/>
-       <menuitem action="finaudit_assertions_menu_action" id="finaudit_menu_assertions" name="Assertions" parent="finaudit_menu_settings" sequence="12"/>
-        <menuitem action="finaudit_objects_menu_action" id="finaudit_menu_objects" name="Objects" parent="finaudit_menu_settings" sequence="14"/>
-
+        <menuitem action="finaudit_procedures_menu_action" id="finaudit_menu_procedures" name="Procedures" parent="finaudit_menu_settings" sequence="20"/>
+        <menuitem action="finaudit_assertions_menu_action" id="finaudit_menu_assertions" name="Assertions" parent="finaudit_menu_settings" sequence="22"/>
+        <menuitem action="finaudit_objects_menu_action" id="finaudit_menu_objects" name="Objects" parent="finaudit_menu_settings" sequence="24"/>
+        <menuitem action="finaudit_procedures_types_menu_action" id="finaudit_menu_procedures_types" name="Procedures Types" parent="finaudit_menu_settings" sequence="26"/>
+        <menuitem action="finaudit_procedures_purposes_menu_action" id="finaudit_menu_procedures_purposes" name="Procedures purposes" parent="finaudit_menu_settings" sequence="28"/>
 </data></odoo>

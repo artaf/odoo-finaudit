@@ -20,6 +20,7 @@ financial audit
         'views/audit_engagements_view.xml',
         'views/assertions_objects_view.xml',
         'views/audit_plans_view.xml',
+        'views/audit_procedures_view.xml',
         'views/menu.xml',
         'data-licence/audit.assertions.xml',
         'data-licence/audit.objects.xml',
