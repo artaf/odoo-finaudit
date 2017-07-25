@@ -4,6 +4,43 @@
     <menuitem id="finaudit_menu" name="Financial Audit" sequence="1" groups="base.group_user"/>
 
     <!-- Side menu actions -->
+    <record id="finaudit_engagements_kanban_menu_action" model="ir.actions.act_window">
+        <field name="name">Audit Engagements dashboard</field>
+        <field name="res_model">audit.engagements</field>
+        <field name="view_mode">kanban,form</field>
+        <field name="help" type="html">
+            <p class="oe_view_nocontent_create">Click to add a new audit engagement.</p>
+        </field>
+    </record>
+    <record model="ir.actions.act_window.view" id="finaudit_engagements_kanban_view">
+        <field name="sequence" eval="1"/>
+        <field name="view_mode">kanban</field>
+        <field name="view_id" ref="audit_engagements_kanban"/>
+        <field name="act_window_id" ref="finaudit_engagements_kanban_menu_action"/>
+    </record>
+
+    <record id="finaudit_plans_menu_action" model="ir.actions.act_window">
+        <field name="name">Planning</field>
+        <field name="res_model">audit.plans</field>
+        <field name="view_mode">tree,form</field>
+        <field name="help" type="html">
+          <p class="oe_view_nocontent_create">Click to add a new plan.</p>
+        </field>
+    </record>
+    <record model="ir.actions.act_window.view" id="finaudit_planss_tree_view">
+        <field name="sequence" eval="2"/>
+        <field name="view_mode">tree</field>
+        <field name="view_id" ref="audit_plans_tree"/>
+        <field name="act_window_id" ref="finaudit_plans_menu_action"/>
+    </record>
+    <record model="ir.actions.act_window.view" id="finaudit_plans_form_view">
+        <field name="sequence" eval="3"/>
+        <field name="view_mode">form</field>
+        <field name="view_id" ref="audit_plans_form"/>
+        <field name="act_window_id" ref="finaudit_plans_menu_action"/>
+    </record>
+
+
     <record id="finaudit_clients_menu_action" model="ir.actions.act_window">
         <field name="name">Clients</field>
         <field name="res_model">audit.engagements.clients</field>
@@ -34,13 +71,13 @@
         </field>
     </record>
     <record model="ir.actions.act_window.view" id="finaudit_engagements_tree_view">
-        <field name="sequence" eval="1"/>
+        <field name="sequence" eval="2"/>
         <field name="view_mode">tree</field>
         <field name="view_id" ref="audit_engagements_tree"/>
         <field name="act_window_id" ref="finaudit_engagements_menu_action"/>
     </record>
     <record model="ir.actions.act_window.view" id="finaudit_engagements_form_view">
-        <field name="sequence" eval="2"/>
+        <field name="sequence" eval="3"/>
         <field name="view_mode">form</field>
         <field name="view_id" ref="audit_engagements_form"/>
         <field name="act_window_id" ref="finaudit_engagements_menu_action"/>
@@ -89,9 +126,14 @@
     </record>
 
     <!-- Side menu items -->
-    <menuitem action="finaudit_engagements_menu_action" id="finaudit_menu_engagements" name="Engagements" parent="finaudit_menu" sequence="1"/>
-    <menuitem action="finaudit_clients_menu_action" id="finaudit_menu_clients" name="Clients" parent="finaudit_menu" sequence="2"/>
-    <menuitem action="finaudit_assertions_menu_action" id="finaudit_menu_assertions" name="Assertions" parent="finaudit_menu" sequence="10"/>
-    <menuitem action="finaudit_objects_menu_action" id="finaudit_menu_objects" name="Objects" parent="finaudit_menu" sequence="11"/>
+    <menuitem action="finaudit_engagements_kanban_menu_action" id="finaudit_menu_dashboard" name="Dashboard" parent="finaudit_menu" sequence="1"/>
+    <menuitem action="finaudit_plans_menu_action" id="finaudit_menu_plans" name="Planning" parent="finaudit_menu" sequence="2"/>
+
+    <menuitem action="finaudit_engagements_menu_action" id="finaudit_menu_engagements" name="Engagements" parent="finaudit_menu" sequence="10"/>
+    <menuitem action="finaudit_clients_menu_action" id="finaudit_menu_clients" name="Clients" parent="finaudit_menu" sequence="3"/>
+
+    <menuitem id="finaudit_menu_settings" name="Settings" parent="finaudit_menu" sequence="99"/>
+       <menuitem action="finaudit_assertions_menu_action" id="finaudit_menu_assertions" name="Assertions" parent="finaudit_menu_settings" sequence="12"/>
+        <menuitem action="finaudit_objects_menu_action" id="finaudit_menu_objects" name="Objects" parent="finaudit_menu_settings" sequence="14"/>
 
 </data></odoo>

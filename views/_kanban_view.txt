@@ -1,0 +1,88 @@
+Colour:
+<div t-attf-class="#{kanban_color(record.color.raw_value)} "></div>
+<div t-if="widget.editable" class="o_project_kanban_colorpicker" ><ul class="oe_kanban_colorpicker" data-field="color"/></div>
+
+o_kanban_dashboard - what's the difference?
+oe_kanban_global_click - open ?form view
+oe_kanban_global_click_edit - open ?form view in edit mode
+o_kanban_title - for title, obviously
+oe_kanban_status - small circle? with two coloures: red and green?
+
+
+o_kanban_card_content
+o_kanban_primary_left
+
+
+
+
+========== from kanban_view.less ===
+o-kanban-icon
+
+o_kanban_view
+o_kanban_record
+	o_kanban_image - image at the left side
+	oe_kanban_details
+	o_dropdown_kanban
+	
+	o_kanban_footer
+	oe_kanban_footer_left
+	oe_kanban_bottom_right
+	oe_kanban_bottom_left
+	o_kanban_tags
+		o_tag
+	.o_form_field_many2manytags
+	.oe_kanban_text_red
+
+.o_kanban_quick_create
+
+.o_kanban_group
+	.o_kanban_header
+
+&.o_kanban_ungrouped
+	.o_kanban_record
+		.o_kanban_ghost
+&.o_kanban_grouped
+	.o_kanban_record
+	&.o_kanban_small_column .o_kanban_group
+&.o_kanban_nocontent
+&.o_kanban_mobile .o_kanban_record
+.o_column_quick_create
+
+
+.o_kanban_view
+	.o_kanban_record
+	.ui-sortable-helper
+	.o_kanban_two_column_tags
+		.o_kanban_image
+	.o_kanban_title
+	.o_kanban_image
+	.o_kanban_button
+	.o_dropdown_kanban
+	.oe_kanban_avatar
+	.oe_kanban_avatar_smallbox
+	.o_kanban_attachment_image
+	.o_progressbar
+		.o_progressbar_title
+		.o_progress
+		.o_progressbar_value
+	.oe_kanban_colorpicker
+	.o_dropdown_kanban
+	.o_kanban_group
+	&.o_kanban_dragged
+	.o_kanban_header
+		.o_column_unfold
+		.o_column_title
+		 .o_kanban_quick_add
+		 .o_kanban_config
+	&.o_column_folded
+...
+	.o_kanban_quick_create
+	.o_kanban_load_more
+
+.o_column_quick_create
+
+.oe_kanban_color_0 - 10
+
+.oe_kanban_status
+	&.oe_kanban_status_green
+	&.oe_kanban_status_red
