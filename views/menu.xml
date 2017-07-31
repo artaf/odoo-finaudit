@@ -124,10 +124,12 @@
         <field name="view_id" ref="audit_objects_form"/>
         <field name="act_window_id" ref="finaudit_objects_menu_action"/>
     </record>
------
+
+<!-- TODO: add tree hierarchy view -->
     <record id="finaudit_procedures_menu_action" model="ir.actions.act_window">
         <field name="name">Audit procedures views</field>
         <field name="res_model">audit.procedures</field>
+        <field name="view_type">form</field>
         <field name="view_mode">tree,form</field>
         <field name="help" type="html">
             <p class="oe_view_nocontent_create">Click to add a new audit procedure.</p>
@@ -145,7 +147,16 @@
         <field name="view_id" ref="audit_procedures_form"/>
         <field name="act_window_id" ref="finaudit_procedures_menu_action"/>
     </record>
-
+<!--
+    <record id="finaudit_procedures_menu_action" model="ir.actions.act_window">
+        <field name="name">Audit procedures views</field>
+        <field name="type">ir.actions.act_window</field>
+        <field name="res_model">audit.procedures</field>
+        <field name="view_type">tree</field>
+        <field name="view_mode">tree,form</field>
+        <field name="view_id" ref="audit_procedures_tree"/>
+    </record>
+    -->
     <record id="finaudit_procedures_purposes_menu_action" model="ir.actions.act_window">
         <field name="name">Audit procedures purposes views</field>
         <field name="res_model">audit.procedures.purposes</field>
@@ -200,4 +211,9 @@
         <menuitem action="finaudit_objects_menu_action" id="finaudit_menu_objects" name="Objects" parent="finaudit_menu_settings" sequence="24"/>
         <menuitem action="finaudit_procedures_types_menu_action" id="finaudit_menu_procedures_types" name="Procedures Types" parent="finaudit_menu_settings" sequence="26"/>
         <menuitem action="finaudit_procedures_purposes_menu_action" id="finaudit_menu_procedures_purposes" name="Procedures purposes" parent="finaudit_menu_settings" sequence="28"/>
+
+<!--  testing -->
+<menuitem action="product.product_category_action_form" id="finaudit_menu_1" name="Pr categ" parent="finaudit_menu_settings" sequence="28"/>
+<menuitem action="product.product_normal_action_sell" id="finaudit_menu_2" name="Pr sale" parent="finaudit_menu_settings" sequence="28"/>
+
 </data></odoo>

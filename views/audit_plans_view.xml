@@ -7,7 +7,6 @@
     <field name="priority">0</field>
     <field name="arch" type="xml">
         <kanban class="o_kanban_dashboard" on_create="">
-            <field name="name"/>
             <field name="date_start"/>
             <field name="date_end"/>
             <templates>
@@ -32,18 +31,34 @@
     <field name="priority">20</field>
     <field name="arch" type="xml">
         <form string="Audit Plan">
-            <header></header>
+        <sheet>
             <group>
-                <field name="name"/>
                 <field name="engagement_id"/>
                 <field name="procedure_id"/>
-                <field name="date_plan"/>
-                <field name="date_actual"/>
-                <field name="period"/>
-                <field name="extent"/>
-                <field name="employee"/>
-                <field name="comment"/>
             </group>
+
+            <notebook>
+            <page string="Procedure">
+                <group>
+                    <group>
+                        <field name="date_plan"/>
+                        <field name="date_actual"/>
+                        <field name="period"/>
+                        <field name="extent"/>
+                        <field name="employee"/>
+                    </group>
+                </group>
+                <field name="comment"/>
+            </page>
+            <page string="Files">
+                <field name="file_ids">
+                    <tree string="Documents attached" editable="bottom">
+                        <field name="name"/>
+                    </tree>
+                </field>
+            </page>
+            </notebook>
+        </sheet>
         </form>
     </field>
 </record>
@@ -53,7 +68,7 @@
     <field name="model">audit.plans</field>
     <field name="arch" type="xml">
         <tree string="Audit Plans">
-            <field name="name"/>
+            <!-- <field name="name"/> -->
             <field name="engagement_id"/>
             <field name="procedure_id"/>
             <field name="date_plan"/>
@@ -61,7 +76,7 @@
             <field name="period"/>
             <field name="extent"/>
             <field name="employee"/>
-            <field name="comment"/>
+            <!--            <field name="comment"/>-->
         </tree>
     </field>
 </record>

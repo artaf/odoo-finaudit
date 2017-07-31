@@ -7,11 +7,13 @@
     <field name="priority">20</field>
     <field name="arch" type="xml">
         <form string="Procedure">
-            <header></header>
             <group>
                 <field name="name"/>
                 <field name="type"/>
                 <field name="purpose"/>
+            </group>
+            <group>
+                <field name="parent_id"/>
             </group>
         </form>
     </field>
@@ -25,6 +27,7 @@
             <field name="name"/>
             <field name="type"/>
             <field name="purpose"/>
+            <field name="parent_id"/>
         </tree>
     </field>
 </record>
@@ -35,7 +38,6 @@
     <field name="priority">20</field>
     <field name="arch" type="xml">
         <form string="Audit procedure type">
-            <header></header>
             <group>
                 <field name="name"/>
             </group>
@@ -60,7 +62,6 @@
     <field name="priority">20</field>
     <field name="arch" type="xml">
         <form string="Audit procedure purpose">
-            <header></header>
             <group>
                 <field name="name"/>
             </group>
