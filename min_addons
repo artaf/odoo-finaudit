@@ -1,12 +1,7 @@
-__init__.py
-__init__.pyc
 auth_crypt
 base
 base_import
 base_setup
-decimal_precision
-odoo-finaudit
-test_exceptions
 web
 web_calendar
 web_diagram

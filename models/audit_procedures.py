@@ -23,11 +23,11 @@ class AuditProcedure(models.Model):
     _parent_store = True
     _order = "id"
 
-    @api.one
     @api.constrains('parent_id')
     def _check_hierarchy(self):
-        if not self._check_recursion():
-            raise models.ValidationError('You cannot create recursive records')
+        for rec in self:
+            if not rec._check_recursion():
+                raise models.ValidationError('You cannot create recursive records')
 
     name = fields.Char("Procedure", required=True)
     type = fields.Many2one('audit.procedures.types', string='Type')
