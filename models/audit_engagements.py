@@ -12,6 +12,10 @@ class AuditEngagements(models.Model):
     _description = "Audit Engagements"
     _order = "id"
 
+    def _compute_count_procedures(self):
+        for eng in self:
+            eng.count_procedures = len(eng.auditplan_ids)
+
     active = fields.Boolean(default=True, help="If the active field is set to False, it will allow you to hide the engagemet without removing it.")
     name = fields.Char("Engagement", copy=False, required=True)
     date_start = fields.Date(string="Start date", default=fields.Datetime.now, copy=False, readonly=[('active','=',False)])
@@ -20,19 +24,20 @@ class AuditEngagements(models.Model):
     client_id = fields.Many2one('audit.engagements.clients', string='Client', required=True, readonly=[('active','=',False)])
     company_id = fields.Many2one('res.company', string='Audit Company', change_default=True, required=True, readonly=[('active','=',False)], default=lambda self: self.env.user.company_id.id )
     user_id = fields.Many2one('res.users', string='Engagement Manager', default=lambda self: self.env.user, readonly=[('active','=',False)])
-    #TODO
-    # add 'state' field and make other fields readonly for particular state
+    # TODO add 'state' field and make other fields readonly for particular state
+    count_procedures = fields.Integer(compute='_compute_count_procedures', string='Procedures')
     _sql_constraints = []
 
-    def toggle_active(self):
-        self.active=not self.active
-        if self.active:
-            # clear readonly
-            self._fields['name'].readonly=False
-            self._fields['date_start'].readonly=False
-        else:
-            # set readonly
-            print "set ro"
-            self._fields['name'].readonly=True
-            self._fields['date_start'].readonly=True
+# readonly will be done with 'state' field
+#    def toggle_active(self):
+#        self.active=not self.active
+#        if self.active:
+#            # clear readonly
+#            self._fields['name'].readonly=False
+#            self._fields['date_start'].readonly=False
+#        else:
+#            # set readonly
+#            print "set ro"
+#            self._fields['name'].readonly=True
+#            self._fields['date_start'].readonly=True
 

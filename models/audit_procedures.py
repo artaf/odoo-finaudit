@@ -37,4 +37,6 @@ class AuditProcedure(models.Model):
     child_ids = fields.One2many('audit.procedures', 'parent_id', string='Child')
     parent_left = fields.Integer(index=True)
     parent_right = fields.Integer(index=True)
+    # TODO add bool field wether to add a procedure to new engagement
+    #addtonew = fields.Boolean()
     _sql_constraints = []

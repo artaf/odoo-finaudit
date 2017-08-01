@@ -24,9 +24,8 @@ class AuditPlan(models.Model):
 ###################################
 # results go here
 ###################################
-#    result_ids = fields.One2many('audit.procedures.results', 'auditplan_id')
-    file_ids = fields.One2many('audit.procedures.files', 'auditplan_id', domain=lambda self: [('res_model', '=', self._name)], auto_join=True, string='Attachments')
-#   questionnaire_ids
+    file_ids = fields.One2many('audit.procedures.files', 'res_id', auto_join=True, string='Attachments')
+    questionnaire_ids = fields.One2many('audit.procedures.questionnaire', 'id', auto_join=True, string='Questionnaire')
 #   calcs
     _sql_constraints = []
 
@@ -35,13 +34,26 @@ class AuditProceduresFiles(models.Model):
     _description = 'Files were attached to a procedure'
     _inherit = 'ir.attachment'
     _order = 'id'
+    name = fields.Char('Attachment Name', required=True)
+    res_model = fields.Char('Resource Model', readonly=True, default='audit.plans')
+    public = fields.Boolean('Is public document', readonly=True, default=False)
+    res_id = fields.Integer(index=True)
+#    res_id = fields.Many2one('audit.plans', string='Resource ID', ondelete='restrict', index=True, help="The record id this is attached to.")
 
-    auditplan_id = fields.Many2one('audit.plans', string='Files attached', ondelete='restrict', index=True)
+    @api.depends('datas_fname')
+    def _compute_name(self):
+        for attachment in self:
+            attachment.name=attachment.datas_fname
 
-#class AuditProceduresResults(models.Model):
-#    _name ='audit.procedures.results'
-#    _description = 'Audit Plan'
-#    _order = 'id'
+    @api.onchange('datas_fname')
+    def _compute_name_ui(self):
+        self._compute_name()
 
-#    auditplan_id = fields.Many2one('audit.plans', string='Procedure Result', ondelete='restrict', index=True)
-#    attachments = fields.Many2many('ir.attachment')
+class AuditProceduresQuestionnaire(models.Model):
+    _name = 'audit.procedures.questionnaire'
+    _description = 'Answers to the questionnaire of a particular procedure in an audit plan'
+    _rec_name='procedure_id'
+    _order = 'id'
+    procedure_id = fields.Many2one('audit.plans', string='Procedure', ondelete='restrict', index=True, help="")
+    question_id = fields.Many2one('audit.questionnaire', string='Question', ondelete='restrict', index=True, help="")
+    answer = fields.Char("Answer")
