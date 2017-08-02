@@ -10,7 +10,7 @@ class AuditEngagements(models.Model):
     _name = "audit.engagements"
 #    _inherit = ['mail.thread']
     _description = "Audit Engagements"
-    _order = "id"
+    _order = "is_favorite desc, id"
 
     def _compute_count_procedures(self):
         for eng in self:
@@ -26,7 +26,13 @@ class AuditEngagements(models.Model):
     user_id = fields.Many2one('res.users', string='Engagement Manager', default=lambda self: self.env.user, readonly=[('active','=',False)])
     # TODO add 'state' field and make other fields readonly for particular state
     count_procedures = fields.Integer(compute='_compute_count_procedures', string='Procedures')
+    is_favorite = fields.Boolean(string='Show Project ...', help="")
     _sql_constraints = []
+
+    @api.multi
+    def toggle_favorite(self):
+        for eng in self:
+            eng.is_favorite= not eng.is_favorite
 
 # readonly will be done with 'state' field
 #    def toggle_active(self):

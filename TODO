@@ -1,3 +1,6 @@
+- add audit team
+- add engagement partner
+- copy .o_project_kanban css
 - Attach files to a procedure in an audit plan
 - Favourit for engagements
 - Sort engagements by favourite
@@ -7,4 +10,5 @@
 - kanban view for an engagement
 - access rules for models
 - access rules fo employees groups
+- review terminology
 - 

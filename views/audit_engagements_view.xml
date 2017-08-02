@@ -21,18 +21,38 @@
     <field name="model">audit.engagements</field>
     <field name="priority">0</field>
     <field name="arch" type="xml">
-        <kanban class="o_kanban_dashboard" on_create="">
+        <kanban class="oe_background_grey o_kanban_dashboard o_project_kanban" on_create="">
             <field name="name"/>
             <field name="date_start"/>
             <field name="date_end"/>
+            <field name="client_id"/>
+            <field name="count_procedures"/>
+            <field name="auditplan_ids"/>
+            <field name="is_favorite"/>
             <templates>
             <t t-name="kanban-box">
             <div t-attf-class="oe_kanban_global_click">
-                <div class="o_kanban_card_content o_visible">
-<span><t t-esc="record.name.value"/></span>
-<span t-if="record.date_start.raw_value" class="o_value"><t t-esc="record.date_start.value"/></span>                      
-<span t-if="record.date_end.raw_value" class="o_value"><t t-esc="record.date_end.value"/></span>
-</div>
+                <div class="o_project_kanban_main">
+                    <div class="o_kanban_card_content o_visible">
+                        <div class="o_kanban_primary_left">
+                            <span><t t-esc="record.name.value"/></span>
+                            <span><t t-esc="record.client_id.value"/></span>
+                            <span t-if="record.date_start.raw_value" class="o_value"><t t-esc="record.date_start.value"/></span>
+                            <span t-if="record.date_end.raw_value" class="o_value"><t t-esc="record.date_end.value"/></span>
+                        </div>
+                    </div>
+                    <div class="o_project_kanban_manage">
+                        <a type="object" name="toggle_favorite" class="o_right"><i t-attf-class="oe_inline fa o_dashboard_star #{record.is_favorite.raw_value ? 'fa-star' : 'fa-star-o'}" title="Add/remove from favorite"/></a>
+                    </div>
+                </div>
+                <div class="o_project_kanban_boxes">
+                    <div class="o_project_kanban_box">
+                        <a name="%(finaudit_engagements_2_plan_action)d" type="action">
+                            <span class="o_label">Procedures</span>
+                            <span class="o_value"><t t-esc="record.count_procedures.value"/></span>
+                        </a>
+                    </div>
+                </div>
             </div>
             </t>
             </templates>
@@ -97,10 +117,10 @@
     <field name="model">audit.engagements</field>
     <field name="arch" type="xml">
         <tree string="Audit Engagements">
-            <field name="name"/>
+            <field name="client_id"/>
             <field name="date_start"/>
             <field name="date_end"/>
-            <field name="client_id"/>
+            <field name="name"/>
             <!--            <field name="company_id" groups="" options="{'no_create': True}"/>-->
         </tree>
     </field>
