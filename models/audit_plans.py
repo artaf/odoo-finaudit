@@ -57,3 +57,4 @@ class AuditProceduresQuestionnaire(models.Model):
     procedure_id = fields.Many2one('audit.plans', string='Procedure', ondelete='restrict', index=True, help="")
     question_id = fields.Many2one('audit.questionnaire', string='Question', ondelete='restrict', index=True, help="")
     answer = fields.Char("Answer")
+    comment = fields.Text("Comment")
