@@ -40,7 +40,13 @@
     <field name="priority">20</field>
     <field name="arch" type="xml">
         <form string="Audit Plan">
-        <sheet>
+        <templates>
+            <t t-name="kanban-box">
+                <div>TEMPLATE</div>
+                <span><t t-esc="record.engagement_id.value"/></span>
+            </t>
+        </templates>
+        <!--<sheet>-->
             <group>
                 <field name="engagement_id"/>
                 <field name="procedure_id"/>
@@ -76,7 +82,7 @@
                 </field>
             </page>
             </notebook>
-        </sheet>
+            <!--</sheet>-->
         </form>
     </field>
 </record>

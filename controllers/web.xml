@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    
+<template id="auditplan" name="Audit Plan">
+<t t-call="web.webclient_bootstrap">
+  <div id="wrap" class="container">
+    <h1>Audit Plan</h1>
+
+      <!-- List of procedures -->
+      <t t-foreach="procedures" t-as="procedure">
+      <div class="row">
+        <a t-attf-href="/todo/{{slug(procedure)}}">
+          <span t-field="procedure.procedure_id"/>
+        </a>
+      </div>
+      </t>
+
+      <!-- Add a new Task -->
+      <div class="row">
+        <a href="/todo/add"
+           class="btn btn-primary btn-lg">Add</a>
+      </div>
+
+  </div>
+</t>
+</template>
+
+</odoo>

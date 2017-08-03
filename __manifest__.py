@@ -16,6 +16,11 @@ financial audit
     'data': [
         'security/security.xml',
         'security/ir.model.access.csv',
+# it adds static files
+        'views/finaudit_templates.xml',
+# testing
+#        'controllers/web.xml',
+# normal files
         'views/audit_engagements_clients_view.xml',
         'views/audit_engagements_view.xml',
         'views/assertions_objects_view.xml',
@@ -32,7 +37,7 @@ financial audit
 #        'data-licence/a.model.csv',
         'data.licence/_test_data.xml',
     ],
-    'qweb': [],
+    'qweb': ['static/src/xml/*.xml',],
     'demo': [
     ],
     'test': [],
