@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo><data>
+
+<record id="audit_plans_procedures_form" model="ir.ui.view">
+    <field name="name">audit.plans.procedures.form</field>
+    <field name="model">audit.plans.procedures</field>
+    <field name="priority">20</field>
+    <field name="arch" type="xml">
+        <form>
+            <field name="procedure_id"/>
+            <field name="date_plan"/>
+            <field name="period"/>
+            <field name="extent"/>
+            <field name="employee"/>
+            <field name="comment"/>
+        </form>
+    </field>
+</record>
+
+<record id="audit_plans_procedures_tree" model="ir.ui.view">
+    <field name="name">audit.plans.procedures.tree</field>
+    <field name="model">audit.plans.procedures</field>
+    <field name="priority">30</field>
+    <field name="arch" type="xml">
+        <tree>
+            <field name="procedure_id"/>
+            <field name="date_plan"/>
+            <field name="employee"/>
+        </tree>
+    </field>
+</record>
+
+</data></odoo>

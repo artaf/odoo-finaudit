@@ -9,22 +9,31 @@
     <field name="arch" type="xml">
         <kanban class="o_kanban_dashboard o_project_kanban" on_create="">
             <field name="engagement_id"/>
-            <field name="procedure_id"/>
+            <field name="client"/>
+            <field name="date_start"/>
+            <field name="date_end"/>
+            <field name="count_procedures"/>
+            <!--            <field name="procedure_id"/>
             <field name="date_plan"/>
             <field name="date_actual"/>
             <field name="file_ids"/>
-            <field name="questionnaire_ids"/>
+            <field name="questionnaire_ids"/>-->
             <templates>
             <t t-name="kanban-box">
             <div t-attf-class="oe_kanban_global_click">
                 <div class="o_project_kanban_main">
                     <div class="o_kanban_card_content o_visible">
+                        <span><t t-esc="record.client.value"/></span>
                         <span><t t-esc="record.engagement_id.value"/></span>
-                        <span t-if="record.date_plan.raw_value" class="o_value"><t t-esc="record.date_plan.value"/></span>
+                        <!--                        <span t-if="record.date_plan.raw_value" class="o_value"><t t-esc="record.date_plan.value"/></span>-->
                     </div>
                 </div>
                 <div class="o_project_kanban_boxes">
                     <div class="o_project_kanban_box">
+                        <a name="%(finaudit_plans_form_view)d" type="action">
+                            <span class="o_label">Procedures</span>
+                            <span class="o_value"><t t-esc="record.count_procedures.value"/></span>
+                        </a>
                     </div>
                 </div>
             </div>
@@ -40,18 +49,25 @@
     <field name="priority">20</field>
     <field name="arch" type="xml">
         <form string="Audit Plan">
-        <templates>
+            <!--        <templates>
             <t t-name="kanban-box">
                 <div>TEMPLATE</div>
                 <span><t t-esc="record.engagement_id.value"/></span>
             </t>
-        </templates>
+        </templates>-->
         <!--<sheet>-->
-            <group>
+            <group col="4">
+                <group>
+                <field name="client"/>
                 <field name="engagement_id"/>
-                <field name="procedure_id"/>
+                </group>
+                <group>
+                <field name="date_start"/>
+                <field name="date_end"/>
+                </group>
+                <!--                <field name="procedure_id"/>-->
             </group>
-
+            <!--
             <notebook>
             <page string="Procedure">
                 <group>
@@ -82,6 +98,17 @@
                 </field>
             </page>
             </notebook>
+            -->
+            <field name="auditplan_procedure_ids">
+                <tree string="Audit Procedures" editable="bottom">
+                    <field name="procedure_id"/>
+                    <field name="date_plan"/>
+                    <field name="date_actual"/>
+                    <field name="period"/>
+                    <field name="extent"/>
+                    <field name="employee"/>
+                </tree>
+            </field>
             <!--</sheet>-->
         </form>
     </field>
@@ -93,12 +120,12 @@
     <field name="arch" type="xml">
         <tree string="Audit Plans">
             <field name="engagement_id"/>
-            <field name="procedure_id"/>
+            <!--            <field name="procedure_id"/>
             <field name="date_plan"/>
             <field name="date_actual"/>
             <field name="period"/>
             <field name="extent"/>
-            <field name="employee"/>
+            <field name="employee"/>-->
         </tree>
     </field>
 </record>

@@ -6,9 +6,24 @@ from odoo.exceptions import UserError, RedirectWarning, ValidationError
 class AuditPlan(models.Model):
     _name = 'audit.plans'
     _description = 'Audit Plan'
-    _rec_name='procedure_id'
-    _order = 'engagement_id'
+    _rec_name='engagement_id'
+    _order = 'is_favorite desc, id'
+
     engagement_id = fields.Many2one('audit.engagements', string='Engagement', required=True)
+    client = fields.Char(string='Client', related='engagement_id.client_id.name')
+    date_start = fields.Date(string="Start date", related='engagement_id.date_start')
+    date_end = fields.Date(string="End date", related='engagement_id.date_end')
+    is_favorite = fields.Boolean(string='Favorite', related='engagement_id.is_favorite')
+    count_procedures = fields.Integer(string='Procedures Number', related='engagement_id.count_procedures')
+    auditplan_procedure_ids = fields.One2many('audit.plans.procedures', 'auditplan_id', string='Audit Procedures')
+
+class AuditPlanProcedure(models.Model):
+    _name = 'audit.plans.procedures'
+    _description = 'Audit Plan'
+    _rec_name='procedure_id'
+    _order = 'id'
+
+    auditplan_id = fields.Many2one('audit.plans', string='Audit Plan Reference', ondelete='restrict', index=True)
     procedure_id = fields.Many2one('audit.procedures', string='Procedure', required=True)
     date_plan = fields.Date('Planed Date')
     date_actual = fields.Date('Actual date')

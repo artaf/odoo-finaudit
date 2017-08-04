@@ -1,9 +1,10 @@
+- for new engagement create audit plan with default procedures
+- add contacts for clients (position, name, tel)
+- add to client PRSN, address
 - add audit team
 - add engagement partner
-- copy .o_project_kanban css
+- copy .o_project_kanban to module css
 - Attach files to a procedure in an audit plan
-- Favourit for engagements
-- Sort engagements by favourite
 - new/Withdraw/decline/accept or continue/finished state in engagement
 - choose a period of carring an audit
 - choose a period subject to audit
@@ -11,4 +12,5 @@
 - access rules for models
 - access rules fo employees groups
 - review terminology
-- 
+- add placeholde into comment fields
+- add mail thread to engagement

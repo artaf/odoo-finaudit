@@ -16,15 +16,16 @@ financial audit
     'data': [
         'security/security.xml',
         'security/ir.model.access.csv',
+# for testing purpose
 # it adds static files
-        'views/finaudit_templates.xml',
-# testing
+#        'views/finaudit_templates.xml',
 #        'controllers/web.xml',
 # normal files
         'views/audit_engagements_clients_view.xml',
         'views/audit_engagements_view.xml',
         'views/assertions_objects_view.xml',
         'views/audit_plans_view.xml',
+        'views/audit_plans_procedures_view.xml',
         'views/audit_procedures_view.xml',
         'views/audit_questionnaire.xml',
         'views/menu.xml',
