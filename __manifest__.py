@@ -24,7 +24,7 @@ financial audit
         'views/engagements_clients_view.xml',
         'views/engagements_view.xml',
         'views/assertions_objects_view.xml',
-        'views/plans_view.xml',
+#        'views/plans_view.xml',
         'views/plans_procedures_view.xml',
         'views/procedures_view.xml',
         'views/questionnaire.xml',

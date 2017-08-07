@@ -121,7 +121,7 @@
             <field name="questionnaire_ids"/>-->
             <field name="color"/>
             <templates><t t-name="kanban-box">
-            <div t-attf-class="oe_kanban_color_#{kanban_getcolor(record.color.raw_value)} oe_kanban_card oe_kanban_global_click">   
+            <div t-attf-class="oe_kanban_color_#{kanban_getcolor(record.color.raw_value)} oe_kanban_card oe_kanban_global_click">
 <!-- TODO move to the right corner -->
 <!-- moved to kanban-boxes but still not perfect
                 <div class="pull-right"><div class="o_dropdown_kanban dropdown o_right">
@@ -129,7 +129,7 @@
                         <span class="fa fa-bars fa-lg"/>
                     </a>
                     <ul class="dropdown-menu" role="menu" aria-labelledby="dLabel">
-                        <t t-if="widget.editable"><li><a type="edit">Edit Task</a></li></t>
+                        <t t-if="widget.editable"><li><a type="edit">Edit</a></li></t>
                         <t t-if="widget.deletable"><li><a type="delete">Delete</a></li></t>
                         <li><ul class="oe_kanban_colorpicker" data-field="color"/></li>
                     </ul>
@@ -215,20 +215,29 @@
     </field>
 </record>
 
+
+<!-- audit.plans actions -->
+
+
 <!-- audit.procedures.files -->
+<!-- moved to 
 <record id="audit_procedures_files_form" model="ir.ui.view">
     <field name="name">audit.procedures.files.form</field>
     <field name="model">audit.procedures.files</field>
     <field name="priority">20</field>
     <field name="inherit_id" ref="base.view_attachment_form"/>
     <field name="arch" type="xml">
+-->
 <!-- TODO revome and hide some fields -->
+<!-- moved to 
         <form></form>
+-->
         <!--        <xpath expr='//form' position='attributes'>
             <attribute name="create">false</attribute>
             <attribute name="edit">false</attribute>
         </xpath>
         -->
+<!-- moved to 
     </field>
 </record>
 
@@ -237,16 +246,22 @@
     <field name="model">audit.procedures.files</field>
     <field name="inherit_id" ref="base.view_attachment_tree"/>
     <field name="arch" type="xml">
+-->
 <!-- TODO revome and hide some fields -->
+<!-- moved to 
         <tree></tree>
+-->
         <!--<xpath expr='//tree' position='attributes'>
             <attribute name="create">false</attribute>
             <attribute name="edit">false</attribute>
         </xpath>
         -->
+<!-- moved to 
     </field>
 </record>
+-->
 
+<!-- moved to audit_plans_procedures.xml
 <record id="audit_procedures_questionnaire_form" model="ir.ui.view">
     <field name="name">audit.procedures.questionnaire.form</field>
     <field name="model">audit.procedures.questionnaire</field>
@@ -270,8 +285,7 @@
         </tree>
     </field>
 </record>
-
-<!-- audit.plans actions -->
+-->
     <record model="ir.actions.act_window.view" id="finaudit_plans_kanban_view">
         <field name="sequence" eval="1"/>
         <field name="view_mode">kanban</field>

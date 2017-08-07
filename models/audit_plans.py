@@ -35,6 +35,7 @@ class AuditPlanProcedure(models.Model):
     # TODO: add reference to audit team
     employee = fields.Char(string='Responsible')
     comment = fields.Text('Comment')
+    color = fields.Integer('Color index')
     # TODO add state
 #    state = fields.
 
