@@ -1,3 +1,4 @@
+- remove audit.plans course it duplicate audit.engagements
 - move to right corner in audit.plans <div class="o_dropdown_kanban dropdown o_right">
 - for new engagement create audit plan with default procedures
 - add contacts for clients (position, name, tel)

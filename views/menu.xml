@@ -280,7 +280,7 @@
     <menuitem action="finaudit_procedures_menu_action" id="finaudit_menu_procedures" name="Procedures" parent="finaudit_menu_settings" sequence="20"/>
     <menuitem action="finaudit_questionnaire_menu_action" id="finaudit_menu_questionnaire" name="Questionnaire" parent="finaudit_menu_settings" sequence="21"/>
     <menuitem action="finaudit_assertions_menu_action" id="finaudit_menu_assertions" name="Assertions" parent="finaudit_menu_settings" sequence="22"/>
-        <menuitem action="finaudit_objects_menu_action" id="finaudit_menu_objects" name="Objects" parent="finaudit_menu_settings" sequence="24"/>
+    <menuitem action="finaudit_objects_menu_action" id="finaudit_menu_objects" name="Objects" parent="finaudit_menu_settings" sequence="24"/>
     <menuitem action="finaudit_procedures_types_menu_action" id="finaudit_menu_procedures_types" name="Procedures Types" parent="finaudit_menu_settings" sequence="26"/>
     <menuitem action="finaudit_procedures_purposes_menu_action" id="finaudit_menu_procedures_purposes" name="Procedures purposes" parent="finaudit_menu_settings" sequence="28"/>
     <menuitem action="finaudit_procedures_files_menu_action" id="finaudit_menu_procedures_files" name="Procedure Files" parent="finaudit_menu_settings" sequence="30"/>

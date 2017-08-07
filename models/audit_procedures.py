@@ -38,5 +38,5 @@ class AuditProcedure(models.Model):
     parent_left = fields.Integer(index=True)
     parent_right = fields.Integer(index=True)
     # TODO add bool field wether to add a procedure to new engagement
-    #addtonew = fields.Boolean()
+    #addtonew = fields.Boolean('Add to a new engagement', help='Add the procedure to a new engagement')
     _sql_constraints = []

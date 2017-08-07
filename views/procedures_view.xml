@@ -11,7 +11,9 @@
                 <field name="name"/>
                 <field name="type"/>
                 <field name="purpose"/>
+<!--<field name="addtonew"/>-->
             </group>
+<field name="reftostd"/>
             <group>
                 <field name="parent_id"/>
             </group>
@@ -27,6 +29,8 @@
             <field name="name"/>
             <field name="type"/>
             <field name="purpose"/>
+<!--<field name="addtonew"/>-->
+<field name="reftostd"/>
             <field name="parent_id"/>
         </tree>
     </field>

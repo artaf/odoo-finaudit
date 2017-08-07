@@ -6,7 +6,7 @@ from odoo.exceptions import UserError, RedirectWarning, ValidationError
 class AuditQuestionnaire(models.Model):
     _name = "audit.questionnaire"
     _description = "Questionnaire"
-    _order = "id"
+    _order = "procedure_id"
 
     name = fields.Char("Question", copy=False, required=True)
 #    answer = fields.Selection([('yes','Yes'),('no','No'),('n/a','N/A')], requred=True)
