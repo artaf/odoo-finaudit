@@ -106,8 +106,9 @@
     <field name="model">audit.plans</field>
     <field name="priority">0</field>
     <field name="arch" type="xml">
-        <kanban class="o_kanban_dashboard  o_project_kanban" on_create="">
+        <!--        <kanban class="o_kanban_dashboard  o_project_kanban" on_create="">-->
             <!-- <kanban default_group_by="" default_order="" -->
+        <kanban class="o_kanban_dashboard o_project_kanban o_kanban_project_tasks" on_create="">
             <field name="engagement_id"/>
             <field name="client"/>
             <field name="date_start"/>
@@ -120,42 +121,68 @@
             <field name="questionnaire_ids"/>-->
             <field name="color"/>
             <templates><t t-name="kanban-box">
-            <div t-attf-class="#{kanban_color(record.color.raw_value)} oe_kanban_global_click">
-            <!--t-attf-class="#{kanban_color(record.color.raw_value)}" -->
-                <div class="o_dropdown_kanban dropdown">
-                    <!-- top-right dropdown -->
-                    <a class="dropdown-toggle btn" data-toggle="dropdown" href="#">
+            <div t-attf-class="oe_kanban_color_#{kanban_getcolor(record.color.raw_value)} oe_kanban_card oe_kanban_global_click">   
+<!-- TODO move to the right corner -->
+<!-- moved to kanban-boxes but still not perfect
+                <div class="pull-right"><div class="o_dropdown_kanban dropdown o_right">
+                    <a class="dropdown-toggle btn" data-toggle="dropdown" href="#" >
                         <span class="fa fa-bars fa-lg"/>
                     </a>
                     <ul class="dropdown-menu" role="menu" aria-labelledby="dLabel">
-                        <t t-if="widget.editable"><li><a type="edit">Edit</a></li></t>
+                        <t t-if="widget.editable"><li><a type="edit">Edit Task</a></li></t>
                         <t t-if="widget.deletable"><li><a type="delete">Delete</a></li></t>
-                        <!-- <li><a name="" type="object"></a></li>-->
                         <li><ul class="oe_kanban_colorpicker" data-field="color"/></li>
                     </ul>
-                </div>
+                </div></div>
+-->
+                <div class="o_project_kanban_main">
                 <div class="oe_kanban_content">
-                    <span><t t-esc="record.client.value"/></span>
-                    <span><t t-esc="record.engagement_id.value"/></span>
+                    <span><t t-esc="record.client.value"/>
+<t t-esc="record.engagement_id.value"/></span>
                     <!--                        <span t-if="record.date_plan.raw_value" class="o_value"><t t-esc="record.date_plan.value"/></span>-->
-                    Preliminary Engagement Activities
-                    Planning Activities
-                    Audit procedures
-                    Engagement team work review
-                    Forming an Opinion
+                    <a>Preliminary Engagement Activities</a>
+                    <a>Planning Activities</a>
+                    <a>Audit procedures</a>
+                    <a>Engagement team work review</a>
+                    <a>Forming an Opinion</a>
 
-                    <div class="oe_kanban_footer">
-                        <div>
-                            left hand footer
-                        </div>
-                        <div>
-                            right hand footer
-                        </div>
+                    <div class="oe_kanban_bottom_left">
+                        bottom left
+                    </div>
+                    <div class="oe_kanban_bottom_right">
+                        bottom right
                     </div>
                 </div> <!-- oe_kanban_content -->
                 <div class="oe_clear"/>
 
+                </div> <!-- o_project_kanban_main -->
                 <div class="o_project_kanban_boxes">
+                    <div class="o_project_kanban_box">
+                        Prelimenary activity
+                    </div>
+                    <div class="o_project_kanban_box">
+                        Planning
+                    </div>
+                    <div class="o_project_kanban_box">
+                        Materiality
+                    </div>
+                    <div class="o_project_kanban_box">
+                        Forming an opinion
+                    </div>
+                </div> <!-- o_project_kanban_boxes -->
+
+                <div class="o_project_kanban_boxes">
+                    <!-- remove first line  -->
+                    <div class="oe_inline oe_right"><div class="o_dropdown_kanban dropdown">
+                        <a class="dropdown-toggle btn" data-toggle="dropdown" href="#" >
+                            <span class="fa fa-bars fa-lg"/>
+                        </a>
+                        <ul class="dropdown-menu" role="menu" aria-labelledby="dLabel">
+                            <t t-if="widget.editable"><li><a type="edit">Edit</a></li></t>
+                            <t t-if="widget.deletable"><li><a type="delete">Delete</a></li></t>
+                            <li><ul class="oe_kanban_colorpicker" data-field="color"/></li>
+                        </ul>
+                    </div></div>
                     <div class="o_project_kanban_box">
                         <!--                        <a name="%(finaudit_plans_form_view_2)d" type="action">-->
                             <span class="o_label">Procedures</span>
@@ -164,9 +191,6 @@
                     </div>
                     <div class="o_project_kanban_box">
                         Documents
-                    </div>
-                    <div class="o_project_kanban_box">
-                        Materiality
                     </div>
                 </div> <!-- o_project_kanban_boxes -->
             </div>
