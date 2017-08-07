@@ -16,6 +16,7 @@ class AuditPlan(models.Model):
     is_favorite = fields.Boolean(string='Favorite', related='engagement_id.is_favorite')
     count_procedures = fields.Integer(string='Procedures Number', related='engagement_id.count_procedures')
     auditplan_procedure_ids = fields.One2many('audit.plans.procedures', 'auditplan_id', string='Audit Procedures')
+    color = fields.Integer('Color index')
 
 class AuditPlanProcedure(models.Model):
     _name = 'audit.plans.procedures'
@@ -36,6 +37,7 @@ class AuditPlanProcedure(models.Model):
     comment = fields.Text('Comment')
     # TODO add state
 #    state = fields.
+
 ###################################
 # results go here
 ###################################

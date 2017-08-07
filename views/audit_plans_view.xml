@@ -1,48 +1,18 @@
 <?xml version="1.0" encoding="utf-8"?>
 <odoo><data>
 
-<!-- TODO finish kanban for audit plan -->
-<record id="audit_plans_kanban" model="ir.ui.view">
-    <field name="name">audit.plans.kanban</field>
-    <field name="model">audit.plans</field>
-    <field name="priority">0</field>
-    <field name="arch" type="xml">
-        <kanban class="o_kanban_dashboard o_project_kanban" on_create="">
-            <field name="engagement_id"/>
-            <field name="client"/>
-            <field name="date_start"/>
-            <field name="date_end"/>
-            <field name="count_procedures"/>
-            <!--            <field name="procedure_id"/>
-            <field name="date_plan"/>
-            <field name="date_actual"/>
-            <field name="file_ids"/>
-            <field name="questionnaire_ids"/>-->
-            <templates>
-            <t t-name="kanban-box">
-            <div t-attf-class="oe_kanban_global_click">
-                <div class="o_project_kanban_main">
-                    <div class="o_kanban_card_content o_visible">
-                        <span><t t-esc="record.client.value"/></span>
-                        <span><t t-esc="record.engagement_id.value"/></span>
-                        <!--                        <span t-if="record.date_plan.raw_value" class="o_value"><t t-esc="record.date_plan.value"/></span>-->
-                    </div>
-                </div>
-                <div class="o_project_kanban_boxes">
-                    <div class="o_project_kanban_box">
-                        <a name="%(finaudit_plans_form_view)d" type="action">
-                            <span class="o_label">Procedures</span>
-                            <span class="o_value"><t t-esc="record.count_procedures.value"/></span>
-                        </a>
-                    </div>
-                </div>
-            </div>
-            </t>
-            </templates>
-        </kanban>
-    </field>
-</record>
+<!-- audit.plans actions -->
+    <record id="finaudit_plans_menu_action" model="ir.actions.act_window">
+        <field name="name">Planning</field>
+        <field name="res_model">audit.plans</field>
+        <field name="view_mode">kanban,tree,form</field>
+        <field name="help" type="html">
+          <p class="oe_view_nocontent_create">Click to add a new plan.</p>
+        </field>
+    </record>
+<!-- 1 action is after a form view, 3 acts - at the end -->
 
+<!-- audit.plans views -->
 <record id="audit_plans_form" model="ir.ui.view">
     <field name="name">audit.plans.form</field>
     <field name="model">audit.plans</field>
@@ -111,6 +81,97 @@
             </field>
             <!--</sheet>-->
         </form>
+    </field>
+</record>
+
+<!-- audit.plans actions -->
+    <record model="ir.actions.act_window.view" id="finaudit_plans_form_view_2">
+        <field name="name">Audit Plan</field>
+        <field name="res_model">audit.plans</field>
+        <field name="view_mode">form</field>
+        <field name="context">{
+                'default_project_id': active_id,
+            }</field>
+        <field name="help" type="html">
+            <p class="oe_view_nocontent_create">
+                Here, you can add a new audit plan.
+            </p>
+        </field>
+    </record>
+<!-- 3 acts at the end -->
+
+<!-- TODO finish kanban for audit plan -->
+<record id="audit_plans_kanban" model="ir.ui.view">
+    <field name="name">audit.plans.kanban</field>
+    <field name="model">audit.plans</field>
+    <field name="priority">0</field>
+    <field name="arch" type="xml">
+        <kanban class="o_kanban_dashboard  o_project_kanban" on_create="">
+            <!-- <kanban default_group_by="" default_order="" -->
+            <field name="engagement_id"/>
+            <field name="client"/>
+            <field name="date_start"/>
+            <field name="date_end"/>
+            <field name="count_procedures"/>
+            <!--            <field name="procedure_id"/>
+            <field name="date_plan"/>
+            <field name="date_actual"/>
+            <field name="file_ids"/>
+            <field name="questionnaire_ids"/>-->
+            <field name="color"/>
+            <templates><t t-name="kanban-box">
+            <div t-attf-class="#{kanban_color(record.color.raw_value)} oe_kanban_global_click">
+            <!--t-attf-class="#{kanban_color(record.color.raw_value)}" -->
+                <div class="o_dropdown_kanban dropdown">
+                    <!-- top-right dropdown -->
+                    <a class="dropdown-toggle btn" data-toggle="dropdown" href="#">
+                        <span class="fa fa-bars fa-lg"/>
+                    </a>
+                    <ul class="dropdown-menu" role="menu" aria-labelledby="dLabel">
+                        <t t-if="widget.editable"><li><a type="edit">Edit</a></li></t>
+                        <t t-if="widget.deletable"><li><a type="delete">Delete</a></li></t>
+                        <!-- <li><a name="" type="object"></a></li>-->
+                        <li><ul class="oe_kanban_colorpicker" data-field="color"/></li>
+                    </ul>
+                </div>
+                <div class="oe_kanban_content">
+                    <span><t t-esc="record.client.value"/></span>
+                    <span><t t-esc="record.engagement_id.value"/></span>
+                    <!--                        <span t-if="record.date_plan.raw_value" class="o_value"><t t-esc="record.date_plan.value"/></span>-->
+                    Preliminary Engagement Activities
+                    Planning Activities
+                    Audit procedures
+                    Engagement team work review
+                    Forming an Opinion
+
+                    <div class="oe_kanban_footer">
+                        <div>
+                            left hand footer
+                        </div>
+                        <div>
+                            right hand footer
+                        </div>
+                    </div>
+                </div> <!-- oe_kanban_content -->
+                <div class="oe_clear"/>
+
+                <div class="o_project_kanban_boxes">
+                    <div class="o_project_kanban_box">
+                        <!--                        <a name="%(finaudit_plans_form_view_2)d" type="action">-->
+                            <span class="o_label">Procedures</span>
+                            <span class="o_value"><t t-esc="record.count_procedures.value"/></span>
+                            <!--                        </a>-->
+                    </div>
+                    <div class="o_project_kanban_box">
+                        Documents
+                    </div>
+                    <div class="o_project_kanban_box">
+                        Materiality
+                    </div>
+                </div> <!-- o_project_kanban_boxes -->
+            </div>
+            </t></templates>
+        </kanban>
     </field>
 </record>
 
@@ -185,5 +246,25 @@
         </tree>
     </field>
 </record>
+
+<!-- audit.plans actions -->
+    <record model="ir.actions.act_window.view" id="finaudit_plans_kanban_view">
+        <field name="sequence" eval="1"/>
+        <field name="view_mode">kanban</field>
+        <field name="view_id" ref="audit_plans_kanban"/>
+        <field name="act_window_id" ref="finaudit_plans_menu_action"/>
+    </record>
+    <record model="ir.actions.act_window.view" id="finaudit_plans_tree_view">
+        <field name="sequence" eval="2"/>
+        <field name="view_mode">tree</field>
+        <field name="view_id" ref="audit_plans_tree"/>
+        <field name="act_window_id" ref="finaudit_plans_menu_action"/>
+    </record>
+    <record model="ir.actions.act_window.view" id="finaudit_plans_form_view">
+        <field name="sequence" eval="3"/>
+        <field name="view_mode">form</field>
+        <field name="view_id" ref="audit_plans_form"/>
+        <field name="act_window_id" ref="finaudit_plans_menu_action"/>
+    </record>
 
 </data></odoo>

@@ -1,0 +1,47 @@
+        <kanban class="o_kanban_dashboard  o_project_kanban" on_create="">
+            <!-- <kanban default_group_by="" default_order="" -->
+            <field name="engagement_id"/>
+            <field name="client"/>
+            <field name="date_start"/>
+            <field name="date_end"/>
+            <field name="count_procedures"/>
+            <!--            <field name="procedure_id"/>
+            <field name="date_plan"/>
+            <field name="date_actual"/>
+            <field name="file_ids"/>
+            <field name="questionnaire_ids"/>-->
+            <templates>
+            <t t-name="kanban-box">
+            <div t-attf-class="oe_kanban_global_click">
+                <!--t-attf-class="#{kanban_color(record.color.raw_value)}" -->
+                <div class="o_project_kanban_main">
+                    <div class="o_kanban_card_content o_visible">
+                        <span><t t-esc="record.client.value"/></span>
+                        <span><t t-esc="record.engagement_id.value"/></span>
+                        <!--                        <span t-if="record.date_plan.raw_value" class="o_value"><t t-esc="record.date_plan.value"/></span>-->
+                    </div>
+                    Preliminary Engagement Activities
+                    Planning Activities
+                    Audit procedures
+                    Engagement team work review
+                    Forming an Opinion
+
+                </div> <!-- o_project_kanban_main -->
+                <div class="o_project_kanban_boxes">
+                    <div class="o_project_kanban_box">
+                        <!--                        <a name="%(finaudit_plans_form_view_2)d" type="action">-->
+                            <span class="o_label">Procedures</span>
+                            <span class="o_value"><t t-esc="record.count_procedures.value"/></span>
+                            <!--                        </a>-->
+                    </div>
+                    <div class="o_project_kanban_box">
+                        Documents
+                    </div>
+                    <div class="o_project_kanban_box">
+                        Materiality
+                    </div>
+                </div> <!-- o_project_kanban_boxes -->
+            </div>
+            </t>
+            </templates>
+        </kanban>
