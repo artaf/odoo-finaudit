@@ -4,15 +4,18 @@
 <record id="audit_plans_procedures_kanban" model="ir.ui.view">
     <field name="name">audit.plans.procedures.kanban</field>
     <field name="model">audit.plans.procedures</field>
-    <field name="priority">10</field>
+    <field name="priority">50</field>
     <field name="arch" type="xml">
     <kanban class="o_kanban_project_tasks" on_create="">
+        <field name="engagement_id"/>
         <field name="procedure_id"/>
         <field name="date_plan"/>
         <field name="date_actual"/>
         <field name="period"/>
         <field name="extent"/>
         <field name="employee"/>
+        <field name="state"/>
+        <field name="stage_id"/>
         <field name="color"/>
         <templates><t t-name="kanban-box">
         <div t-attf-class="oe_kanban_color_#{kanban_getcolor(record.color.raw_value)} oe_kanban_card oe_kanban_global_click">
@@ -33,12 +36,19 @@
     <t t-esc="record.procedure_id.value"/>
     <t t-esc="record.date_plan.value"/>
 </span>
+                <div class="text-muted">
+text-muted
+                    <field name="engagement_id" invisible="context.get('default_project_id', False)"/>
+                </div>
 
                 <div class="oe_kanban_bottom_left">
                     bottom left
                 </div>
                 <div class="oe_kanban_bottom_right">
                     bottom right
+                    <div class="pull-left">
+                        <field name="state" widget="kanban_state_selection"/>
+                    </div>
                 </div>
             </div> <!-- oe_kanban_content -->
             <div class="oe_clear"/>
@@ -57,12 +67,20 @@
     <field name="priority">20</field>
     <field name="arch" type="xml">
         <form>
-            <field name="procedure_id"/>
-            <field name="date_plan"/>
-            <field name="period"/>
-            <field name="extent"/>
-            <field name="employee"/>
-            <field name="comment"/>
+            <header>
+                <button name="wkf_accept" states="assigned" string="Accept" class="oe_highlight"/>
+                <field name="state" statusbar_visible="assigned,inprogress,review,done" widget="statusbar" statusbar_colors='{"proforma":"blue"}'/>
+            </header>
+            <sheet>
+                <group>
+                    <field name="procedure_id"/>
+                    <field name="date_plan"/>
+                    <field name="period"/>
+                    <field name="extent"/>
+                    <field name="employee"/>
+                </group>
+                <field name="comment" placeholde="Comment"/>
+            </sheet>
         </form>
     </field>
 </record>

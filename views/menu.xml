@@ -40,7 +40,7 @@
         </field>
     </record>
     <record model="ir.actions.act_window.view" id="finaudit_plans_procedures_kanban_view">
-        <field name="sequence" eval="1"/>
+        <field name="sequence" eval="9"/>
         <field name="view_mode">kanban</field>
         <field name="view_id" ref="audit_plans_procedures_kanban"/>
         <field name="act_window_id" ref="finaudit_plans_procedures_menu_action"/>
@@ -260,8 +260,8 @@
 
     <!-- Side menu items -->
     <!--    <menuitem action="finaudit_engagements_kanban_menu_action" id="finaudit_menu_dashboard" name="Dashboard" parent="finaudit_menu" sequence="1"/> -->
-    <menuitem action="finaudit_engagements_menu_action" id="finaudit_menu_engagements" name="Engagements" parent="finaudit_menu" sequence="20"/>
-    <menuitem action="finaudit_plans_procedures_menu_action" id="finaudit_menu_plans_procedures" name="Planed Procedures" parent="finaudit_menu" sequence="10"/>
+    <menuitem action="finaudit_engagements_menu_action" id="finaudit_menu_engagements" name="Engagements" parent="finaudit_menu" sequence="10"/>
+    <menuitem action="finaudit_plans_procedures_menu_action" id="finaudit_menu_plans_procedures" name="Planed Procedures" parent="finaudit_menu" sequence="20"/>
     <menuitem action="finaudit_clients_menu_action" id="finaudit_menu_clients" name="Clients" parent="finaudit_menu" sequence="30"/>
 
     <menuitem id="finaudit_menu_settings" name="Settings" parent="finaudit_menu" sequence="99"/>

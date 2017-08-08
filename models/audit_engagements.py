@@ -23,7 +23,7 @@ class AuditEngagements(models.Model):
     auditplan_procedure_ids = fields.One2many('audit.plans.procedures', 'engagement_id', string='Procedures', copy=True, readonly=[('active','=',False)])
     client_id = fields.Many2one('audit.engagements.clients', string='Client', required=True, readonly=[('active','=',False)])
     company_id = fields.Many2one('res.company', string='Audit Company', change_default=True, required=True, readonly=[('active','=',False)], default=lambda self: self.env.user.company_id.id )
-    user_id = fields.Many2one('res.users', string='Engagement Manager', default=lambda self: self.env.user, readonly=[('active','=',False)])
+    user_id = fields.Many2one('res.users', string='Engagement Partner', default=lambda self: self.env.user, readonly=[('active','=',False)])
     # TODO add 'state' field
     # TODO make other fields readonly for particular state
     count_procedures = fields.Integer(compute='_compute_count_procedures', string='Procedures')

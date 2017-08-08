@@ -37,7 +37,13 @@ class AuditPlanProcedure(models.Model):
     comment = fields.Text('Comment')
     color = fields.Integer('Color index')
     # TODO add state
-#    state = fields.
+    state = fields.Selection([
+            ('assigned','Assigned'),
+            ('inprogress','In progress'),
+            ('review', 'Under review'),
+            ('done', 'Done'),
+        ], string='Status', index=True, readonly=True, default='assigned',track_visibility='onchange', copy=False, help="Procedure status")
+    stage_id = fields.Integer()
 
 ###################################
 # results go here
@@ -46,6 +52,14 @@ class AuditPlanProcedure(models.Model):
     questionnaire_ids = fields.One2many('audit.procedures.questionnaire', 'id', auto_join=True, string='Questionnaire')
 #   calcs
     _sql_constraints = []
+
+    @api.multi
+    def wkf_accept(self):
+        for app in self:
+            app.write({'state': 'inprogress'})
+    # TODO add other workflow functions
+    # TODO create workflow xml file
+
 
 class AuditProceduresFiles(models.Model):
     _name = 'audit.procedures.files'
@@ -81,7 +95,7 @@ class AuditProceduresQuestionnaire(models.Model):
     _description = 'Answers to the questionnaire of a particular procedure in an audit plan'
     _rec_name='procedure_id'
     _order = 'id'
-    procedure_id = fields.Many2one('audit.plans', string='Procedure', ondelete='restrict', index=True, help="")
+    procedure_id = fields.Many2one('audit.plans.procedures', string='Procedure', ondelete='restrict', index=True, help="")
     question_id = fields.Many2one('audit.questionnaire', string='Question', ondelete='restrict', index=True, help="")
     answer = fields.Char("Answer")
     comment = fields.Text("Comment")

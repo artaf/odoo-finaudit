@@ -34,28 +34,34 @@
         <field name="name">Engagement_6</field>
         <field name="client_id" ref="cl_2"/>
     </record>
-
+    <!--
     <record model="audit.plans" id="ap1">
         <field name="engagement_id" ref="eng_1"/>
     </record>
+    -->
     <record model="audit.plans.procedures" id="approc1">
-        <field name="auditplan_id" ref="ap1"/>
+        <!--        <field name="auditplan_id" ref="ap1"/>-->
+        <field name="engagement_id" ref="eng_1"/>
         <field name="procedure_id" ref="pr2"/>
         <field name="date_plan">08.08.2017</field>
     </record>
     <record model="audit.plans.procedures" id="approc2">
-        <field name="auditplan_id" ref="ap1"/>
+        <!--<field name="auditplan_id" ref="ap1"/>-->
+        <field name="engagement_id" ref="eng_1"/>
         <field name="procedure_id" ref="pr3"/>
         <field name="date_plan">08.08.2017</field>
     </record>
     <record model="audit.plans.procedures" id="approc3">
-        <field name="auditplan_id" ref="ap1"/>
+        <!--<field name="auditplan_id" ref="ap1"/>-->
+        <field name="engagement_id" ref="eng_1"/>
         <field name="procedure_id" ref="pr4"/>
         <field name="date_plan">08.08.2017</field>
     </record>
 
-    <record model="audit.plans" id="ap2">
+    <record model="audit.plans.procedures" id="approc4">
         <field name="engagement_id" ref="eng_2"/>
+        <field name="procedure_id" ref="pr2"/>
+        <field name="date_plan">03.08.2017</field>
     </record>
 
 </data></odoo>
