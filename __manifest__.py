@@ -35,6 +35,7 @@ financial audit
         'data.licence/appurposes.xml',
         'data.licence/audit.procedures.csv',
         'data.licence/audit.questionnaire.csv',
+        'data.licence/audit.questionnaire.lines.csv',
 #        'data-licence/a.model.csv',
         'data.licence/_test_data.xml',
     ],
