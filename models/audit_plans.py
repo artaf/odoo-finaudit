@@ -21,10 +21,11 @@ class AuditPlanProcedure(models.Model):
     _name = 'audit.plans.procedures'
     _description = 'Audit Plan Procedures'
     _rec_name='procedure_id'
-    _order = 'id'
+    _order = 'engagement_id, procedure_id'
 
-#    auditplan_id = fields.Many2one('audit.plans', string='Audit Plan Reference', ondelete='restrict', index=True)
     engagement_id = fields.Many2one('audit.engagements', string='Engagement', required=True, ondelete='restrict', index=True)
+    client_id = fields.Many2one(string='Client', related='engagement_id.client_id')
+    user_id = fields.Many2one(string='Engagement Partner', related='engagement_id.user_id')
     procedure_id = fields.Many2one('audit.procedures', string='Procedure', required=True)
     date_plan = fields.Date('Planed Date')
     date_actual = fields.Date('Actual date')
@@ -95,6 +96,6 @@ class AuditProceduresQuestionnaire(models.Model):
     _rec_name='procedure_id'
     _order = 'procedure_id'
     procedure_id = fields.Many2one('audit.plans.procedures', string='Procedure', ondelete='restrict', index=True, help="")
-    question_id = fields.Many2one('audit.questionnaire', string='Question', ondelete='restrict', index=True, help="")
+    question_id = fields.Many2one('audit.questionnaire.lines', string='Question', ondelete='restrict', index=True, help="")
     answer = fields.Char("Answer")
     comment = fields.Text("Comment")

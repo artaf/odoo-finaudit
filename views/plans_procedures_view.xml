@@ -72,46 +72,46 @@ text-muted
                 <button name="wkf_accept" states="assigned" string="Accept" class="oe_highlight"/>
                 <field name="state" statusbar_visible="assigned,inprogress,review,done" widget="statusbar" statusbar_colors='{"proforma":"blue"}'/>
             </header>
-            <sheet>
+            <group>
+                <field name="client_id"/>
+            </group>
+            <group>
+                <group col="4">
+                    <field name="engagement_id"/>
+                    <field name="user_id"/>
+                </group>
+                <field name="procedure_id"/>
+                <field name="employee"/>
+            </group>
+            <notebook>
+            <page string="Procedure">
                 <group>
-                    <field name="procedure_id"/>
-                    <group col="4">
-                        <field name="engagement_id"/>
-                        <field name="employee"/>
+                    <group>
+                        <field name="date_plan"/>
+                        <field name="date_actual"/>
+                        <field name="period"/>
+                        <field name="extent"/>
                     </group>
                 </group>
-                <notebook>
-                    <page string="Procedure">
-                        <group>
-                            <group col="4">
-                                <field name="date_plan"/>
-                                <field name="date_actual"/>
-                            </group>
-                            <field name="period"/>
-                            <field name="extent"/>
-                        </group>
-                        <field name="comment" placeholder="Comment"/>
-                    </page>
-                    <page string="Questionnaire">
-                        <button name="method_name" string="TEST" type="object" class="oe_highlight"/> 
-                        <field name="questionnaire_ids">
-                            <tree string="Questionnari" editable="bottom">
-                                <field name="question_id"/>
-                                <field name="answer"/>
-                            </tree>
-                        </field>
-                    </page>
-                    <page string="Files">
-                        <field name="file_ids">
-                        <tree string="Documents attached" editable="bottom">
-                            <field name="name"/>
-                            </tree>
-                        </field>
-                    </page>
-
-                </notebook>
                 <field name="comment" placeholder="Comment"/>
-            </sheet>
+            </page>
+            <page string="Questionnaire">
+                <button name="method_name" string="TEST" type="object" class="oe_highlight"/> 
+                <field name="questionnaire_ids">
+                    <tree string="Questionnari" editable="bottom">
+                        <field name="question_id"/>
+                        <field name="answer"/>
+                    </tree>
+                </field>
+            </page>
+            <page string="Files">
+                <field name="file_ids">
+                    <tree string="Documents attached" editable="bottom">
+                        <field name="name"/>
+                    </tree>
+                </field>
+            </page>
+            </notebook>
         </form>
     </field>
 </record>
@@ -127,6 +127,7 @@ text-muted
             <field name="state"/>
             <field name="date_plan"/>
             <field name="employee"/>
+            <field name="state"/>
         </tree>
     </field>
 </record>

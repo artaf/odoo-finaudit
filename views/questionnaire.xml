@@ -7,8 +7,15 @@
     <field name="priority">20</field>
     <field name="arch" type="xml">
         <form string="Questionnaire">
-            <field name="procedure_id"/>
-            <field name="name"/>
+            <group>
+                <field name="name"/>
+                <field name="procedure_id"/>
+            </group>
+            <field name="auditquestionnaire_lines">
+                <tree>
+                    <field name="name"/>
+                </tree>
+            </field>
         </form>
     </field>
 </record>
@@ -18,8 +25,8 @@
     <field name="model">audit.questionnaire</field>
     <field name="arch" type="xml">
         <tree string="Questionnaire">
-            <field name="procedure_id"/>
             <field name="name"/>
+            <field name="procedure_id"/>
         </tree>
     </field>
 </record>
