@@ -44,12 +44,11 @@ class AuditPlanProcedure(models.Model):
             ('done', 'Done'),
         ], string='Status', index=True, readonly=True, default='assigned',track_visibility='onchange', copy=False, help="Procedure status")
     stage_id = fields.Integer()
-
 ###################################
 # results go here
 ###################################
     file_ids = fields.One2many('audit.procedures.files', 'res_id', auto_join=True, string='Attachments')
-    questionnaire_ids = fields.One2many('audit.procedures.questionnaire', 'id', auto_join=True, string='Questionnaire')
+    questionnaire_ids = fields.One2many('audit.procedures.questionnaire', 'procedure_id', string='Questionnaire')
 #   calcs
     _sql_constraints = []
 
@@ -94,7 +93,7 @@ class AuditProceduresQuestionnaire(models.Model):
     _name = 'audit.procedures.questionnaire'
     _description = 'Answers to the questionnaire of a particular procedure in an audit plan'
     _rec_name='procedure_id'
-    _order = 'id'
+    _order = 'procedure_id'
     procedure_id = fields.Many2one('audit.plans.procedures', string='Procedure', ondelete='restrict', index=True, help="")
     question_id = fields.Many2one('audit.questionnaire', string='Question', ondelete='restrict', index=True, help="")
     answer = fields.Char("Answer")
