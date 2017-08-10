@@ -84,10 +84,12 @@ class AuditProceduresFiles(models.Model):
     @api.depends('residx_id')
     def _compute_res_id(self):
         for attachment in self:
+            print "_compute_res_id"
             attachment.res_id=attachment.residx_id
 
     @api.onchange('residx_id')
     def _compute_res_id_ui(self):
+        print "_compute_res_id_ui"
         self._compute_res_id()
 
 class AuditProceduresQuestionnaire(models.Model):

@@ -108,6 +108,13 @@ text-muted
                 <field name="file_ids">
                     <tree string="Documents attached" editable="bottom">
                         <field name="name"/>
+                        <field name="datas_fname"/>
+                        <field name="res_model"/>
+                        <field name="res_id"/>
+                        <field name="type"/>
+                        <field name="store_fname"/>
+                        <field name="file_size"/>
+                        <field name="datas" filename="datas_fname"/>
                     </tree>
                 </field>
             </page>
@@ -146,6 +153,10 @@ text-muted
             <attribute name="edit">false</attribute>
         </xpath>
         -->
+        <xpath expr="//field[@name='res_id']" position="after">
+            <field name="residx_id"/>
+        </xpath>
+
     </field>
 </record>
 
@@ -155,7 +166,9 @@ text-muted
     <field name="inherit_id" ref="base.view_attachment_tree"/>
     <field name="arch" type="xml">
 <!-- TODO revome and hide some fields -->
-        <tree></tree>
+            <xpath expr="//field[@name='res_id']" position="after">
+                <field name="residx_id"/>
+            </xpath>
         <!--<xpath expr='//tree' position='attributes'>
             <attribute name="create">false</attribute>
             <attribute name="edit">false</attribute>
