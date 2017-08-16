@@ -69,7 +69,7 @@ class AuditProceduresFiles(models.Model):
     name = fields.Char('Attachment Name', required=True)
     res_model = fields.Char('Resource Model', readonly=True, default='audit.plans.procedures')
     public = fields.Boolean('Is public document', readonly=True, default=False)
-#    res_id = fields.Integer(index=True)
+    res_id = fields.Integer(index=True, readonly=False)
     residx_id = fields.Many2one('audit.plans.procedures', string='Resource ID', ondelete='restrict', index=True, help="The record id this is attached to.")
 
     @api.depends('datas_fname')
@@ -84,12 +84,10 @@ class AuditProceduresFiles(models.Model):
     @api.depends('residx_id')
     def _compute_res_id(self):
         for attachment in self:
-            print "_compute_res_id"
-            attachment.res_id=attachment.residx_id
+            attachment.res_id=attachment.residx_id.id
 
     @api.onchange('residx_id')
     def _compute_res_id_ui(self):
-        print "_compute_res_id_ui"
         self._compute_res_id()
 
 class AuditProceduresQuestionnaire(models.Model):
