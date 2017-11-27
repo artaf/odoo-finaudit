@@ -142,6 +142,28 @@
         <field name="act_window_id" ref="finaudit_questionnaire_menu_action"/>
     </record>
 
+    <record id="finaudit_calcs_menu_action" model="ir.actions.act_window">
+        <field name="name">Calcs</field>
+        <field name="res_model">audit.calcs</field>
+        <field name="view_type">form</field>
+        <field name="view_mode">tree,form</field>
+        <field name="help" type="html">
+            <p class="oe_view_nocontent_create">Click to add a new calc.</p>
+        </field>
+    </record>
+    <record model="ir.actions.act_window.view" id="finaudit_calcs_tree_view">
+        <field name="sequence" eval="1"/>
+        <field name="view_mode">tree</field>
+        <field name="view_id" ref="audit_calcs_tree"/>
+        <field name="act_window_id" ref="finaudit_calcs_menu_action"/>
+    </record>
+    <record model="ir.actions.act_window.view" id="finaudit_calcs_form_view">
+        <field name="sequence" eval="2"/>
+        <field name="view_mode">form</field>
+        <field name="view_id" ref="audit_calcs_form"/>
+        <field name="act_window_id" ref="finaudit_calcs_menu_action"/>
+    </record>
+
     <record id="finaudit_procedures_menu_action" model="ir.actions.act_window">
         <field name="name">Audit procedures</field>
         <field name="res_model">audit.procedures</field>
@@ -265,6 +287,7 @@
     <menuitem action="finaudit_clients_menu_action" id="finaudit_menu_clients" name="Clients" parent="finaudit_menu" sequence="30"/>
 
     <menuitem id="finaudit_menu_settings" name="Settings" parent="finaudit_menu" sequence="99"/>
+    <menuitem action="finaudit_calcs_menu_action" id="finaudit_menu_calcs" name="Calcs" parent="finaudit_menu_settings" sequence="20"/>
     <menuitem action="finaudit_procedures_menu_action" id="finaudit_menu_procedures" name="Procedures" parent="finaudit_menu_settings" sequence="20"/>
     <menuitem action="finaudit_questionnaire_menu_action" id="finaudit_menu_questionnaire" name="Questionnaire" parent="finaudit_menu_settings" sequence="21"/>
     <menuitem action="finaudit_assertions_menu_action" id="finaudit_menu_assertions" name="Assertions" parent="finaudit_menu_settings" sequence="22"/>

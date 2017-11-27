@@ -27,6 +27,7 @@ financial audit
 #        'views/plans_view.xml',
         'views/plans_procedures_view.xml',
         'views/procedures_view.xml',
+        'views/calcs.xml',
         'views/questionnaire.xml',
         'views/menu.xml',
         'data.licence/audit.assertions.xml',

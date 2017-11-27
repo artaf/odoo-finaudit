@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo><data>
+
+<record id="calcs_form" model="ir.ui.view">
+    <field name="name">audit.calcs.form</field>
+    <field name="model">audit.calcs</field>
+    <field name="priority">20</field>
+    <field name="arch" type="xml">
+        <form string="Calc">
+            <group>
+                <field name="name"/>
+                <field name="data"/>
+            </group>
+        </form>
+    </field>
+</record>
+
+<record id="calcs_tree" model="ir.ui.view">
+    <field name="name">audit.calcs.tree</field>
+    <field name="model">audit.calcs</field>
+    <field name="arch" type="xml">
+        <tree string="Calcs">
+            <field name="name"/>
+        </tree>
+    </field>
+</record>
+
+</data></odoo>
