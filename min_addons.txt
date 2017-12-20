@@ -2,6 +2,7 @@ auth_crypt
 base
 base_import
 base_setup
+test_exceptions
 web
 web_calendar
 web_diagram
@@ -10,3 +11,9 @@ web_kanban
 web_kanban_gauge
 web_planner
 web_settings_dashboard
+
+
+report
+web_tour
+bus
+mail

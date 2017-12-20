@@ -13,3 +13,4 @@ add user
 
 on Windows, install nodejs (https://nodejs.org/download/), reboot (to update the PATH) and install less
 npm install -g less
+Add to the path smth like this C:\Users\[USER]\AppData\Roaming\npm
