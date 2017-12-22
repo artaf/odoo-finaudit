@@ -154,13 +154,13 @@
     <record model="ir.actions.act_window.view" id="finaudit_calcs_tree_view">
         <field name="sequence" eval="1"/>
         <field name="view_mode">tree</field>
-        <field name="view_id" ref="audit_calcs_tree"/>
+        <field name="view_id" ref="finaudit_calcs_tree"/>
         <field name="act_window_id" ref="finaudit_calcs_menu_action"/>
     </record>
     <record model="ir.actions.act_window.view" id="finaudit_calcs_form_view">
         <field name="sequence" eval="2"/>
         <field name="view_mode">form</field>
-        <field name="view_id" ref="audit_calcs_form"/>
+        <field name="view_id" ref="finaudit_calcs_form"/>
         <field name="act_window_id" ref="finaudit_calcs_menu_action"/>
     </record>
 

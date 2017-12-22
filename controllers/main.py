@@ -4,13 +4,13 @@ from odoo.http import request
 
 
 class AuditPlanCtrl(http.Controller):
-
-    @http.route('/finaudit/plan/<eng>', auth='user')
+    @http.route('/finaudit/plan/<eng>', auth='user', website=True)
     def index(self, eng, **kwargs):
         # TODO add checking for eng?
-        ap = request.env['audit.plans']
+        ap = request.env['audit.plans.procedures']
         procedures =  ap.search([('engagement_id','=',eng),])
         return request.render('finaudit.auditplan', {'procedures': procedures})
+
 
 #    @http.route('/todo/<model("todo.task"):task>', website=True)
 #    def detail(self, task, **kwargs):

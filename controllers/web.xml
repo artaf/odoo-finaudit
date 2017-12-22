@@ -2,7 +2,8 @@
 <odoo>
     
 <template id="auditplan" name="Audit Plan">
-<t t-call="web.webclient_bootstrap">
+<t t-call="website.layout">
+<!--<t t-call="web.webclient_bootstrap">-->
   <div id="wrap" class="container">
     <h1>Audit Plan</h1>
 

@@ -11,7 +11,7 @@ financial audit
     'e-mail': "@",
     'website': "",
     'license': "LGPL-3",
-    'depends': ['base_setup','base','web_kanban','web_planner',
+    'depends': ['base_setup','base','web_kanban','web_planner', 'website',
     ],
     'data': [
         'security/security.xml',
@@ -27,7 +27,7 @@ financial audit
 #        'views/plans_view.xml',
         'views/plans_procedures_view.xml',
         'views/procedures_view.xml',
-        'views/calcs.xml',
+        'views/calcs_view.xml',
         'views/questionnaire.xml',
         'views/menu.xml',
         'data.licence/audit.assertions.xml',
