@@ -2,14 +2,17 @@
 <odoo><data noupdate="0">
     <record model="audit.objects" id="obj_1">
         <field name="name">виды операций</field>
+        <!-- 11.0       <field name="assertion_ids" eval="(4,[ref('asser_1'),ref('asser_2'),ref('asser_3'),ref('asser_4'),ref('asser_5')])"/>-->
         <field name="assertion_ids" eval="[(4,[ref('asser_1'),ref('asser_2'),ref('asser_3'),ref('asser_4'),ref('asser_5')]),]"/>
     </record>
     <record model="audit.objects" id="obj_2">
         <field name="name">остатки по счетам</field>
+        <!-- 11.0 <field name="assertion_ids" eval="(4,[ref('asser_6'),ref('asser_7'),ref('asser_2'),ref('asser_9')])"/> -->
         <field name="assertion_ids" eval="[(4,[ref('asser_6'),ref('asser_7'),ref('asser_2'),ref('asser_9')]),]"/>
     </record>
     <record model="audit.objects" id="obj_3">
         <field name="name">представление и раскрытие информации</field>
+        <!-- 11.0 <field name="assertion_ids" eval="(4,[ref('asser_10'),ref('asser_2'),ref('asser_12'),ref('asser_13')])"/> -->
         <field name="assertion_ids" eval="[(4,[ref('asser_10'),ref('asser_2'),ref('asser_12'),ref('asser_13')]),]"/>
     </record>
     <record model="audit.objects" id="obj_4">

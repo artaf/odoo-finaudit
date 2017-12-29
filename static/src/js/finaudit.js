@@ -1,13 +1,13 @@
 odoo.define('finaudit.FormView', function (require) {
 "use strict";
 
-var core = require('web.core');
-var QWeb = require('web.QWeb');
-var session = require('web.session');
-var utils = require('web.utils');
-var FormView=require('web.FormView');
+//var core = require('web.core');
+//var QWeb = require('web.QWeb');
+//var session = require('web.session');
+//var utils = require('web.utils');
+//var FormView=require('web.FormView');
 
-var qweb = core.qweb;
+//var qweb = core.qweb;
 
 
 //    FormView.include({
